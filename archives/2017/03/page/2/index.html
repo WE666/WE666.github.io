@@ -6,19 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Nginx 禁止IP访问 只允许域名访问 | Jason&#39;Blog</title>
+  <title>Archives: 2017/3 | Jason&#39;Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在Nginx上设置禁止通过IP访问服务器，只能通过域名访问，这样做是为了避免别人把未备案的域名解析到自己的服务器IP而导致服务器被断网。比如别人通过ip或者未知域名访问你的网站的时候，你希望禁止显示任何有效内容，可以给他返回500.目前国内很多机房都要求网站主关闭空主机头，防止未备案的域名指向过来造成麻烦。 修改nginx.conf 文件初始时是：12345server &amp;#123;    lis">
-<meta name="keywords" content="Nginx">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Nginx 禁止IP访问 只允许域名访问">
-<meta property="og:url" content="http://yoursite.com/2018/03/27/Nginx 禁止IP访问 只允许域名访问/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Jason&#39;Blog">
+<meta property="og:url" content="http://yoursite.com/archives/2017/03/page/2/index.html">
 <meta property="og:site_name" content="Jason&#39;Blog">
-<meta property="og:description" content="在Nginx上设置禁止通过IP访问服务器，只能通过域名访问，这样做是为了避免别人把未备案的域名解析到自己的服务器IP而导致服务器被断网。比如别人通过ip或者未知域名访问你的网站的时候，你希望禁止显示任何有效内容，可以给他返回500.目前国内很多机房都要求网站主关闭空主机头，防止未备案的域名指向过来造成麻烦。 修改nginx.conf 文件初始时是：12345server &amp;#123;    lis">
-<meta property="og:updated_time" content="2018-07-18T03:17:59.277Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Nginx 禁止IP访问 只允许域名访问">
-<meta name="twitter:description" content="在Nginx上设置禁止通过IP访问服务器，只能通过域名访问，这样做是为了避免别人把未备案的域名解析到自己的服务器IP而导致服务器被断网。比如别人通过ip或者未知域名访问你的网站的时候，你希望禁止显示任何有效内容，可以给他返回500.目前国内很多机房都要求网站主关闭空主机头，防止未备案的域名指向过来造成麻烦。 修改nginx.conf 文件初始时是：12345server &amp;#123;    lis">
+<meta name="twitter:title" content="Jason&#39;Blog">
   
     <link rel="alternative" href="/atom.xml" title="Jason&#39;Blog" type="application/atom+xml">
   
@@ -160,225 +155,70 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Nginx 禁止IP访问 只允许域名访问" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      Nginx 禁止IP访问 只允许域名访问
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/03/21/用hexo在github上构建博客系统/" class="archive-article-date">
+  	<time datetime="2017-03-21T10:44:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-21</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/03/21/用hexo在github上构建博客系统/">用hexo在github上构建博客系统</a>
     </h1>
   
 
 
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> Read:<span id="/2018/03/27/Nginx 禁止IP访问 只允许域名访问/" class="pageViews">0</span>
+      <i class="icon-smile icon"></i> Read:<span id="/2017/03/21/用hexo在github上构建博客系统/" class="pageViews">0</span>
   </a>
 
-        
-        <a href="/2018/03/27/Nginx 禁止IP访问 只允许域名访问/" class="archive-article-date">
-  	<time datetime="2018-03-27T14:25:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在Nginx上设置禁止通过IP访问服务器，只能通过域名访问，这样做是为了避免别人把未备案的域名解析到自己的服务器IP而导致服务器被断网。比如别人通过ip或者未知域名访问你的网站的时候，你希望禁止显示任何有效内容，可以给他返回500.目前国内很多机房都要求网站主关闭空主机头，防止未备案的域名指向过来造成麻烦。</p>
-<h3 id="修改nginx-conf-文件"><a href="#修改nginx-conf-文件" class="headerlink" title="修改nginx.conf 文件"></a>修改nginx.conf 文件</h3><p>初始时是：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen 80 default_server;</span><br><span class="line">    server_name www.lnmp.org;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>修改成：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">listen 80;</span><br><span class="line">server_name www.jb51.net;  <span class="comment">#这里是你自己指定的域名</span></span><br><span class="line">...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>再在上个server后继续添加一段：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">server ｛</span><br><span class="line">listen 80 default_server;</span><br><span class="line">server_name _;</span><br><span class="line"><span class="built_in">return</span> 403;</span><br><span class="line">｝</span><br></pre></td></tr></table></figure></p>
-<p>这里是在接收到ip访问或非指定域名访问时会返回403错误</p>
-<p>也可以把这些流量收集起来，导入到自己的网站，只要做以下跳转设置就可以：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">server &#123; </span><br><span class="line">  listen 80 default; <span class="comment">#default表示是默认虚拟主机</span></span><br><span class="line">  rewrite ^(.*) http://www.jb51.net permanent; </span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-<p>按照如上设置后，确实不能通过IP访问服务器了，但是在应该用中出现当server_name后跟多个域名时，其中一个域名怎么都无法访问，设置如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">server &#123; </span><br><span class="line">  listen 80; </span><br><span class="line">  server_name www.jb51.net jb51.net </span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
-<p>没更改之前，通过server_name 中的www.jb51.net jb51.net均可访问服务器，加入Nginx 禁止IP访问的设置后，通过jb51.net无法访问服务器了，www.jb51.net可以访问，用 Nginx -t 检测配置文件会提示warning：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[warn]: conflicting server name “jb51.net” on 0.0.0.0:80, </span><br><span class="line">ignored </span><br><span class="line">the configuration file /usr/<span class="built_in">local</span>/Nginx/conf/</span><br><span class="line">Nginx.conf syntax is ok </span><br><span class="line">configuration file /usr/<span class="built_in">local</span>/Nginx/conf/Nginx.</span><br><span class="line">conf <span class="built_in">test</span> is successful</span><br></pre></td></tr></table></figure></p>
-<p>最后通过在listen 80 default;后再加server<em>name </em>;解决，形式如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">server </span><br><span class="line">&#123; </span><br><span class="line">listen 80 default; </span><br><span class="line">server_name _; </span><br><span class="line"><span class="built_in">return</span> 500; </span><br><span class="line">&#125; </span><br><span class="line">或者</span><br><span class="line">server &#123; </span><br><span class="line">listen 80 dufault; </span><br><span class="line">server_name _; </span><br><span class="line">rewrite ^(.*) http://www.jb51.net permanent; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">server &#123; </span><br><span class="line"> listen 80 default; </span><br><span class="line"> server_name _; </span><br><span class="line"> server_name www.jb51.net jb51.net </span><br><span class="line"> <span class="built_in">return</span> 500; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这样，通过jb51.net就能访问服务器了。<br>第一种情况：访问A站定向到B站<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">server &#123; </span><br><span class="line">server_name www.jb51.net ; </span><br><span class="line">rewrite ^(.*) http://www.jbzj.com<span class="variable">$1</span> permanent; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>第二种情况：不是访问A站的全部重定向到指定页面<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">server &#123; </span><br><span class="line">server_name www.jb51.net; </span><br><span class="line"><span class="keyword">if</span> (<span class="variable">$host</span> != <span class="string">'jb51.net'</span>) &#123; </span><br><span class="line">rewrite ^/(.*)$ http://www.jbzj.com/<span class="variable">$1</span> permanent; </span><br><span class="line">	&#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>如果写在第一个server段使用IP访问时也将被重定向</p>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/img/alipay.jpg">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Nginx</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/03/27/Nginx 禁止IP访问 只允许域名访问/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
   
   
-    <a href="/2018/03/26/Spring MVC 去掉静态资源的拦截/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Spring MVC 去掉静态资源的拦截</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#修改nginx-conf-文件"><span class="toc-number">1.</span> <span class="toc-text"><a href="#&#x4FEE;&#x6539;nginx-conf-&#x6587;&#x4EF6;" class="headerlink" title="&#x4FEE;&#x6539;nginx.conf &#x6587;&#x4EF6;"></a>&#x4FEE;&#x6539;nginx.conf &#x6587;&#x4EF6;</span></a></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
-
-<!-- ������City�氲װ���� -->
-<div id="lv-container" data-id="city" data-uid="MTAyMC8zMjYzMC85MTkx">
-	<script type="text/javascript">
-   (function(d, s) {
-       var j, e = d.getElementsByTagName(s)[0];
-
-       if (typeof LivereTower === 'function') { return; }
-
-       j = d.createElement(s);
-       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-       j.async = true;
-
-       e.parentNode.insertBefore(j, e);
-   })(document, 'script');
-	</script>
-<noscript> Ϊ����ʹ�����������۹����뼤��JavaScript</noscript>
-</div>
-<!-- City�氲װ��������� -->
-
-  
-  
+    </div></section>
   
 
+    
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/archives/2017/03/">&laquo; Prev</a><a class="page-number" href="/archives/2017/03/">1</a><span class="page-number current">2</span>
+    </nav>
   
-
-  
-
-  
-
 
 
           </div>
@@ -401,8 +241,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

@@ -157,40 +157,64 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-Spring MVC 去掉静态资源的拦截" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-IDEA使用总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/26/Spring MVC 去掉静态资源的拦截/">Spring MVC 去掉静态资源的拦截</a>
+      <a class="article-title" href="/2018/03/22/IDEA使用总结/">IDEA使用总结</a>
     </h1>
   
 
 
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> Read:<span id="/2018/03/26/Spring MVC 去掉静态资源的拦截/" class="pageViews">0</span>
+      <i class="icon-smile icon"></i> Read:<span id="/2018/03/22/IDEA使用总结/" class="pageViews">0</span>
   </a>
 
         
-        <a href="/2018/03/26/Spring MVC 去掉静态资源的拦截/" class="archive-article-date">
-  	<time datetime="2018-03-26T13:16:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-26</time>
+        <a href="/2018/03/22/IDEA使用总结/" class="archive-article-date">
+  	<time datetime="2018-03-22T09:18:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-22</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="前端控制器的配置"><a href="#前端控制器的配置" class="headerlink" title="前端控制器的配置"></a>前端控制器的配置</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- springmvc的前端控制器 --&gt;</span><br><span class="line">&lt;servlet&gt;</span><br><span class="line">    &lt;servlet-name&gt;springMVC&lt;/servlet-name&gt;</span><br><span class="line">    &lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;/servlet-class&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- contextConfigLocation不是必须的</span><br><span class="line">    如果不配置contextConfigLocation</span><br><span class="line">    springmvc的配置文件默认在：WEB-INF/servlet的name+<span class="string">"-servlet.xml"</span> --&gt;</span><br><span class="line"></span><br><span class="line">    &lt;init-param&gt;</span><br><span class="line">        &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;</span><br><span class="line">        &lt;param-value&gt;classpath:spring/springmvc.xml&lt;/param-value&gt;</span><br><span class="line">    &lt;/init-param&gt;</span><br><span class="line">    &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;</span><br><span class="line">&lt;/servlet&gt;</span><br><span class="line"></span><br><span class="line">&lt;servlet-mapping&gt;</span><br><span class="line">    &lt;servlet-name&gt;springMVC&lt;/servlet-name&gt;</span><br><span class="line">    &lt;url-pattern&gt;/&lt;/url-pattern&gt;</span><br><span class="line">&lt;/servlet-mapping&gt;</span><br></pre></td></tr></table></figure>
-<p>/ 表示拦截所有的请求，包括静态资源 </p>
-<p><url-pattern>/</url-pattern> –表示拦截所有的请求，包括静态资源</p>
-<h3 id="去静态资源拦截的两种方式"><a href="#去静态资源拦截的两种方式" class="headerlink" title="去静态资源拦截的两种方式"></a>去静态资源拦截的两种方式</h3><p><strong>1.在web.xml中配置映射</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 对静态资源的配置 --&gt;</span><br><span class="line">&lt;servlet-mapping&gt;</span><br><span class="line">    &lt;servlet-name&gt;default&lt;/servlet-name&gt;</span><br><span class="line">    &lt;url-pattern&gt;*.js&lt;/url-pattern&gt;</span><br><span class="line">    &lt;url-pattern&gt;*.css&lt;/url-pattern&gt;</span><br><span class="line">    &lt;url-pattern&gt;*.ico&lt;/url-pattern&gt;</span><br><span class="line">    &lt;url-pattern&gt;/img/*&lt;/url-pattern&gt;</span><br><span class="line">    &lt;url-pattern&gt;/fonts/*&lt;/url-pattern&gt;</span><br><span class="line">    &lt;url-pattern&gt;/font/*&lt;/url-pattern&gt;</span><br><span class="line">&lt;/servlet-mapping&gt;</span><br></pre></td></tr></table></figure></p>
-<p>可以根据自身情况，来配置映射</p>
-<p><strong>注意：</strong> 请将它放在所有Servlet的最前面（为了让它最先匹配），这样的话性能上应该比较好 </p>
-<p><strong>2.在springMVC.xml中添加静态资源的映射</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> &lt;!-- 资源映射 --&gt;</span><br><span class="line">&lt;mvc:resources location=<span class="string">"/WEB-INF/css/"</span> mapping=<span class="string">"/css/**"</span>/&gt;</span><br><span class="line">&lt;mvc:resources location=<span class="string">"/WEB-INF/js/"</span> mapping=<span class="string">"/js/**"</span>/&gt;</span><br></pre></td></tr></table></figure>
+        <p>IntelliJ IDEA（简称 IDEA），是 Java 语言开发的集成环境，IDEA 在业界被公认为最好的 Java 开发工具之一，尤其在智能代码助手、代码自动提示、重构、J2EE 支持、各类版本工具（Git、SVN、GitHub 等）、JUnit、CVS 整合、代码分析和创新的 GUI 设计等方面的功能都值得称道。这篇文章主要讲一讲IDEA的使用技巧。</p>
+<h2 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h2><p>1、进入实现方法的快捷键<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ctrl + Alt + 鼠标点击</span><br></pre></td></tr></table></figure></p>
+<p>2、自动给方法添加注释的快捷键<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">输入/**,然后回车</span><br></pre></td></tr></table></figure></p>
+<p>3、删除一行<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CTRL + Y / CTRL + X</span><br></pre></td></tr></table></figure></p>
+<p>4、复制一行<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CTRL + D</span><br></pre></td></tr></table></figure></p>
+<p>5、自动导入包<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALT + Enter</span><br></pre></td></tr></table></figure></p>
+<p>6、生成getter、setter方式<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALT + insert</span><br></pre></td></tr></table></figure></p>
+<p>7、实现接口方法<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CTRL + O</span><br></pre></td></tr></table></figure></p>
+<p>8、移动整个代码块<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ctrl + SHIfT + 上下箭头</span><br></pre></td></tr></table></figure></p>
+<p>9、返回至上次浏览的位置<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ctrl + ALT + 左/右</span><br></pre></td></tr></table></figure></p>
+<p>10、查找和替换<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ctrl + SHIfT + R，替换文本 Ctrl + SHIfT + F，查找文本</span><br></pre></td></tr></table></figure></p>
+<p>11、 debug<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ctrl+F1 ,显示结果</span><br><span class="line">F9 ,下一个断点 F8 ,下一步</span><br></pre></td></tr></table></figure></p>
+<p>12、 移动代码<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Alt+Shift+Up/Down，上/下移一行</span><br></pre></td></tr></table></figure></p>
+<h2 id="错误"><a href="#错误" class="headerlink" title="错误"></a>错误</h2><p>1、maven导入项目报错<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Failed to read artifact descriptor <span class="keyword">for</span> org.springframework.cloud:spring-cloud-starter-eureka-server:jar:<span class="number">1.3</span><span class="number">.0</span>.RELE intellij inspects a maven model <span class="keyword">for</span> resolution problems</span><br></pre></td></tr></table></figure></p>
+<p>不同project下面存在相同的module,导致此问题，删除其它project中项目，再次导入OK。</p>
+<p>2、gradle no cached version available for offline mode<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Error:No cached version of org.springframework.boot:spring-boot-gradle-plugin:<span class="number">1.5</span><span class="number">.4</span>.RELEASE available <span class="keyword">for</span> offline mode.</span><br></pre></td></tr></table></figure></p>
+<p>抱这个错误直接把gradle中的offline work关掉就可以解决：File &gt; Settings &gt; Gradle 中的offline work 的勾去掉。</p>
+<h2 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h2><p>1、添加插件mac</p>
+<ul>
+<li>Intellij IDEA 菜单 -》Preferences-》Plugins 选项卡</li>
+</ul>
+<p>2、添加插件lombok</p>
+<p>lombok是一个标准的java bean需要有getter和setter方法，有时候些代码很冗余，而lombok可以简化我们的代码，在源码中没有getter和setter方法，但是在编译生成的字节码文件中有getter<br>和setter方法，这只是lombok其中的一个功能。</p>
+<p>安装步骤：</p>
+<ul>
+<li>用快捷键Ctrl+Alt+S打开：Settings→Plugins→Browse repositories</li>
+<li>输入lombok后选择Install，安装插件</li>
+<li>按照提示重启IDEA即可</li>
+<li>安装重启之后，还需要设置Settings &gt; Build &gt; Compiler &gt; Annotation Processors，要不然会有lombok requires annotation processing提示。</li>
+</ul>
+<p>3、开启自动 import 包的功能</p>
+<p>Java就是这种包组合在一个的一个东西, 我们在写代码时常常需要引入一些类, 一些第三方的包. IDEA提供了这个功能, 不过默认是关闭的. 打开自动导入包设置如下:<br>Editor =》General =》Auto import =》Optimize imports on the fly</p>
 
       
 
@@ -204,7 +228,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Spring MVC</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">开发工具</a>
         		</li>
       		
 		</ul>
@@ -214,7 +238,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/26/Spring MVC 去掉静态资源的拦截/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/03/22/IDEA使用总结/">展开全文 >></a>
         </p>
       
 
@@ -247,7 +271,7 @@ var _hmt = _hmt || [];
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
     </nav>
   
 
@@ -395,15 +419,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">开发工具</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">开发工具</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Spring MVC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">spring</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -412,10 +440,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">spring</a>
               </li>
              
               <li class="article-tag-list-item">
