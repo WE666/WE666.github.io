@@ -6,11 +6,11 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: Spring MVC | Jason&#39;Blog</title>
+  <title>Jason&#39;Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
 <meta property="og:title" content="Jason&#39;Blog">
-<meta property="og:url" content="http://yoursite.com/tags/Spring-MVC/index.html">
+<meta property="og:url" content="http://yoursite.com/page/10/index.html">
 <meta property="og:site_name" content="Jason&#39;Blog">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Jason&#39;Blog">
@@ -157,64 +157,108 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
-  
+    <article id="post-github的使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/26/Spring MVC 去掉静态资源的拦截/" class="archive-article-date">
-  	<time datetime="2018-03-26T13:16:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-26</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/26/Spring MVC 去掉静态资源的拦截/">Spring MVC 去掉静态资源的拦截</a>
+      <a class="article-title" href="/2017/03/22/github的使用/">github的使用</a>
     </h1>
   
 
 
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> Read:<span id="/2018/03/26/Spring MVC 去掉静态资源的拦截/" class="pageViews">0</span>
+      <i class="icon-smile icon"></i> Read:<span id="/2017/03/22/github的使用/" class="pageViews">0</span>
   </a>
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/03/22/github的使用/" class="archive-article-date">
+  	<time datetime="2017-03-22T05:24:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="上传本地文件到Github"><a href="#上传本地文件到Github" class="headerlink" title="上传本地文件到Github"></a>上传本地文件到Github</h2><ul>
+<li>1.点击文件夹右键Git bash here</li>
+<li>2.输入 <strong>git init</strong>，在当前项目的目录中生成本地的git管理（会发现在当前目录下多了一个.git文件夹）</li>
+<li>3.输入 <strong>git add .</strong> 这个是将项目上所有的文件添加到仓库中的意思，如果只添加某个文件只需把<strong> . </strong>换成这个特定的文件名即可。</li>
+<li>4.输入 <strong>git commit -m ‘first commit’</strong> 表示你对这次提交的注释，双引号里面的内容可以根据个人的需要改。</li>
+<li>5.输入 <strong>git remote add origin git@github.com:WE666/WE666.github.io.git</strong> 将本地的仓库关联到github上，如果出现错误：fatal:remote origin already exists  那就先输入 git remote rm origin再执行上一条命令</li>
+<li>6.最后输入 <strong>git push -u origin master</strong> 把代码上传到github仓库。</li>
+</ul>
+<p>执行完之后如果无错误就上传成功了，需要提示的是这里的master是Github默认的分支，如果你本地的当前分支不是master，就用git checkout master命令切换到master分支，如果你想用本地当前分支上传代码，则把最后一步的命令里的master切换成你的当前分支名即可。</p>
+<p><strong>注意：</strong>如果在创建远程仓库的时候，如果勾选了Initialize this repository with a README 创建仓库的时候自动给你创建一个README文件，那么你将本地仓库内容推送到远程仓库的时候就会报错。这是由于你新创建的那个仓库里面的README文件不在本地仓库目录中，这时我们可以通过以下命令先将内容合并以下：git pull –rebase origin master</p>
+<h2 id="忽略不必要的文件"><a href="#忽略不必要的文件" class="headerlink" title="忽略不必要的文件"></a>忽略不必要的文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#过滤配置文件</span><br><span class="line">*.settings</span><br><span class="line">*.project</span><br><span class="line">*.classpath</span><br><span class="line"></span><br><span class="line">#过滤文件夹target</span><br><span class="line">target/</span><br></pre></td></tr></table></figure>
+<h2 id="修改git用户名和邮箱"><a href="#修改git用户名和邮箱" class="headerlink" title="修改git用户名和邮箱"></a>修改git用户名和邮箱</h2><p>我之前有一个码云的账号，但是密码忘了，于是我重新申请了一个码云账号，因此需要修改全局用户名和邮箱。</p>
+<p>首先进入git bash</p>
+<p>输入：<strong> git config –list </strong>  可以查看user.name 和user.email  分别是什么</p>
+<p>如果你没有初始化过。那么直接：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --<span class="keyword">global</span> user.name <span class="string">"输入你的用户名"</span></span><br><span class="line">git config --<span class="keyword">global</span> user.email <span class="string">"输入你的邮箱"</span></span><br></pre></td></tr></table></figure></p>
+<p>如果已经初始化过了，但是需要修改邮箱和用户名，可以用<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --<span class="keyword">global</span> --replace-all user.email <span class="string">"输入你的邮箱"</span> </span><br><span class="line">git config --<span class="keyword">global</span> --replace-all user.name <span class="string">"输入你的用户名"</span></span><br></pre></td></tr></table></figure></p>
+<p>然后再查看：<strong> git config –list </strong> 发现修改成功</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Spring MVC</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/22/github的使用/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-  
-    </div></section>
-  
 
-    
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/page/9/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/11/">Next &raquo;</a>
+    </nav>
+  
 
 
           </div>
@@ -236,10 +280,10 @@ var _hmt = _hmt || [];
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: false,
+		isHome: true,
 		isPost: false,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
