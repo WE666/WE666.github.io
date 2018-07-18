@@ -157,39 +157,40 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-Hexo文章简单加密访问" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Spring MVC 处理静态资源拦截" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/25/Hexo文章简单加密访问/">Hexo文章简单加密访问</a>
+      <a class="article-title" href="/2018/03/26/Spring MVC 处理静态资源拦截/">Spring MVC 处理静态资源拦截</a>
     </h1>
   
 
 
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> Read:<span id="/2017/03/25/Hexo文章简单加密访问/" class="pageViews">0</span>
+      <i class="icon-smile icon"></i> Read:<span id="/2018/03/26/Spring MVC 处理静态资源拦截/" class="pageViews">0</span>
   </a>
 
         
-        <a href="/2017/03/25/Hexo文章简单加密访问/" class="archive-article-date">
-  	<time datetime="2017-03-25T15:00:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-25</time>
+        <a href="/2018/03/26/Spring MVC 处理静态资源拦截/" class="archive-article-date">
+  	<time datetime="2018-03-26T13:16:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-26</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="创建Lean-Cloud应用"><a href="#创建Lean-Cloud应用" class="headerlink" title="创建Lean Cloud应用"></a>创建Lean Cloud应用</h2><blockquote><p>由于 Hexo 最终编译出来的文件是纯静态的，也就意味着文章的所有信息其实还是原封不动展示在页面中的，当你输入一篇文章的网址，所有的内容就已经跟随网络传输过来了。那我博客使用的加密是怎么实现的呢？</p>
-</blockquote>
-<p>这就要讲到 js 的阻塞机制了，在以往的经验中，当页面中有调用alert();函数的时候，整个页面会停止运行，直到你点击确定之后，页面的中的代码才会继续执行下去。我们这里需要的也是这样一个假象，阻止整个页面的渲染，直到你输入了正确的密码才能让页面继续渲染实际的文章。可是alert只有提醒的功能，没有输入的功能，所以这里要用到的是promt函数。例子参见如下：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var password = promt(<span class="string">'请输入文章密码'</span>);</span><br><span class="line">alert(password);</span><br></pre></td></tr></table></figure>
-<h3 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h3><p>找到themes-&gt;hexo-theme-yilia-&gt;layout-&gt;_partial-&gt;head.ejs文件。<br>按道理是添加在任何地方都行，但是推荐加在所有的标签之后，个人建议，仅做参考。以下是我加的代码：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">	(function()&#123;</span><br><span class="line">		<span class="keyword">if</span>(<span class="string">'&#123;&#123; page.password &#125;&#125;'</span>)&#123;</span><br><span class="line">			<span class="keyword">if</span> (prompt(<span class="string">'请输入文章密码'</span>,<span class="string">''</span>) !== <span class="string">'&#123;&#123; page.password &#125;&#125;'</span>)&#123;</span><br><span class="line">				alert(<span class="string">'密码错误！'</span>);</span><br><span class="line">				history.back();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;)();</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
-<p>然后在文章头部添加访问密码<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">title: Hexo文章简单加密访问</span><br><span class="line">date: <span class="number">2017</span><span class="number">-3</span><span class="number">-25</span> <span class="number">23</span>:<span class="number">00</span>:<span class="number">12</span></span><br><span class="line">tags:</span><br><span class="line">- hexo</span><br><span class="line">categories: 归档</span><br><span class="line">password: password</span><br><span class="line">---</span><br></pre></td></tr></table></figure></p>
-<p>这样我们就好像使用静态页面完成了部分只有动态页面能完成的东西。</p>
+        <h3 id="前端控制器的配置"><a href="#前端控制器的配置" class="headerlink" title="前端控制器的配置"></a>前端控制器的配置</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- springmvc的前端控制器 --&gt;</span><br><span class="line">&lt;servlet&gt;</span><br><span class="line">    &lt;servlet-name&gt;springMVC&lt;/servlet-name&gt;</span><br><span class="line">    &lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;/servlet-class&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 如果contextConfigLocation不配置springmvc的配置文件默认在：WEB-INF/servlet的name+<span class="string">"-servlet.xml"</span> --&gt;</span><br><span class="line"></span><br><span class="line">    &lt;init-param&gt;</span><br><span class="line">        &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;</span><br><span class="line">        &lt;param-value&gt;classpath:spring/springmvc.xml&lt;/param-value&gt;</span><br><span class="line">    &lt;/init-param&gt;</span><br><span class="line">    &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;</span><br><span class="line">&lt;/servlet&gt;</span><br><span class="line"></span><br><span class="line">&lt;servlet-mapping&gt;</span><br><span class="line">    &lt;servlet-name&gt;springMVC&lt;/servlet-name&gt;</span><br><span class="line">    &lt;url-pattern&gt;/&lt;/url-pattern&gt;</span><br><span class="line">&lt;/servlet-mapping&gt;</span><br></pre></td></tr></table></figure>
+<p>/ 表示拦截所有的请求，包括静态资源 </p>
+<p><url-pattern>/</url-pattern> –表示拦截所有的请求，包括静态资源</p>
+<h3 id="去静态资源拦截的两种方式"><a href="#去静态资源拦截的两种方式" class="headerlink" title="去静态资源拦截的两种方式"></a>去静态资源拦截的两种方式</h3><p><strong>1.在web.xml中配置映射</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 对静态资源的配置 --&gt;</span><br><span class="line">&lt;servlet-mapping&gt;</span><br><span class="line">    &lt;servlet-name&gt;default&lt;/servlet-name&gt;</span><br><span class="line">    &lt;url-pattern&gt;*.js&lt;/url-pattern&gt;</span><br><span class="line">    &lt;url-pattern&gt;*.css&lt;/url-pattern&gt;</span><br><span class="line">    &lt;url-pattern&gt;*.ico&lt;/url-pattern&gt;</span><br><span class="line">    &lt;url-pattern&gt;/img/*&lt;/url-pattern&gt;</span><br><span class="line">    &lt;url-pattern&gt;/fonts/*&lt;/url-pattern&gt;</span><br><span class="line">    &lt;url-pattern&gt;/font/*&lt;/url-pattern&gt;</span><br><span class="line">&lt;/servlet-mapping&gt;</span><br></pre></td></tr></table></figure></p>
+<p>可以根据自身情况，来配置映射</p>
+<p><strong>注意：</strong> 请将它放在所有Servlet的最前面（为了让它最先匹配），这样的话性能上应该比较好 </p>
+<p><strong>2.在springMVC.xml中添加静态资源的映射</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> &lt;!-- 资源映射 --&gt;</span><br><span class="line">&lt;mvc:resources location=<span class="string">"/WEB-INF/css/"</span> mapping=<span class="string">"/css/**"</span>/&gt;</span><br><span class="line">&lt;mvc:resources location=<span class="string">"/WEB-INF/js/"</span> mapping=<span class="string">"/js/**"</span>/&gt;</span><br></pre></td></tr></table></figure>
 
       
 
@@ -203,7 +204,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Spring MVC</a>
         		</li>
       		
 		</ul>
@@ -213,7 +214,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/25/Hexo文章简单加密访问/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/03/26/Spring MVC 处理静态资源拦截/">展开全文 >></a>
         </p>
       
 
@@ -246,7 +247,7 @@ var _hmt = _hmt || [];
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
     </nav>
   
 
@@ -398,7 +399,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Nginx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">开发工具</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Spring Boot</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -410,19 +419,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Nginx</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+                <a href="javascript:void(0)" class="js-tag color4">小程序</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">小程序</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
             
             <div class="clearfix"></div>

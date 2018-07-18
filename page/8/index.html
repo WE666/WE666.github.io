@@ -157,37 +157,64 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-yilia主题添加livere来必力评论和相册功能" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-IDEA使用总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/23/yilia主题添加livere来必力评论和相册功能/">yilia主题添加livere来必力评论和相册功能</a>
+      <a class="article-title" href="/2018/03/22/IDEA使用总结/">IDEA使用总结</a>
     </h1>
   
 
 
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> Read:<span id="/2017/03/23/yilia主题添加livere来必力评论和相册功能/" class="pageViews">0</span>
+      <i class="icon-smile icon"></i> Read:<span id="/2018/03/22/IDEA使用总结/" class="pageViews">0</span>
   </a>
 
         
-        <a href="/2017/03/23/yilia主题添加livere来必力评论和相册功能/" class="archive-article-date">
-  	<time datetime="2017-03-23T05:44:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-23</time>
+        <a href="/2018/03/22/IDEA使用总结/" class="archive-article-date">
+  	<time datetime="2018-03-22T09:18:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-22</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>第三方评论有</strong>：畅言、来比力、网易云跟帖、多说deng。多说是最多用户使用的评论，但遗憾2017年6月将暂定服务；网易云跟帖也于8月1号停止服务；畅言必须进行域名备案；来必力是韩国人做的！当时萨德事件，我就没有选择，现在走头无路，发现这个做的也挺好的。</p>
-<h2 id="注册"><a href="#注册" class="headerlink" title="注册"></a>注册</h2><p>LiveRe 有两个版本：<br>City 版：是一款适合所有人使用的免费版本；<br>Premium 版：是一款能够帮助企业实现自动化管理的多功能收费版本<br>获取livere安装代码：<a href="https://livere.com/" title="注册" target="_blank" rel="noopener">点我注册</a></p>
-<h2 id="添加livere插件"><a href="#添加livere插件" class="headerlink" title="添加livere插件"></a>添加livere插件</h2><p>首先在 _config.yml 文件中添加如下配置：livere: true<br>然后\layout_partial\post目录下添加livere.ejs，把livere安装代码复制进去，文件内容如下，其中data-uid就是你自己的data-uid<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 来必力City版安装代码 --&gt;</span><br><span class="line">&lt;div id=&quot;lv-container&quot; data-id=&quot;city&quot; data-uid=&quot;your data-uid&quot;&gt;</span><br><span class="line">	&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">   (function(d, s) &#123;</span><br><span class="line">       var j, e = d.getElementsByTagName(s)[0];</span><br><span class="line"></span><br><span class="line">       if (typeof LivereTower === &apos;function&apos;) &#123; return; &#125;</span><br><span class="line"></span><br><span class="line">       j = d.createElement(s);</span><br><span class="line">       j.src = &apos;https://cdn-city.livere.com/js/embed.dist.js&apos;;</span><br><span class="line">       j.async = true;</span><br><span class="line"></span><br><span class="line">       e.parentNode.insertBefore(j, e);</span><br><span class="line">   &#125;)(document, &apos;script&apos;);</span><br><span class="line">	&lt;/script&gt;</span><br><span class="line">&lt;noscript&gt; 为正常使用来必力评论功能请激活JavaScript&lt;/noscript&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;!-- City版安装代码已完成 --&gt;</span><br></pre></td></tr></table></figure></p>
-<p>最后在layout_partial\article.ejs中&lt;% if (!index &amp;&amp; post.comments){ %&gt;后面添加如下代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if (theme.livere)&#123; %&gt;</span><br><span class="line">&lt;%- partial(&apos;post/livere&apos;, &#123;</span><br><span class="line">    key: post.slug,</span><br><span class="line">    title: post.title,</span><br><span class="line">    url: config.url+url_for(post.path)</span><br><span class="line">  &#125;) %&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure><br>至此，为yilia主题添加livere评论插件完成。如果你想使用畅言评论系统，可以进入<a href="https://changyan.kuaizhan.com/" title="畅言官网" target="_blank" rel="noopener">畅言官网</a>, 点击右上角 “免费注册”，并填写注册信息。（注意域名需要备案信息）</p>
-<h2 id="实现相册功能"><a href="#实现相册功能" class="headerlink" title="实现相册功能"></a>实现相册功能</h2><p>1、github操作<br>建立一个用于存储相册的仓库，将本地仓库提交到github<br>2、博客操作<br>•在博客的source文件夹下建立一个photos文件夹，将样式文件放到photos文件夹下<br>•修改ins.js文件，主要是里面的render函数 ，其中的url对应到你的github放图片的地址<br>3、图片处理<br>•执行python脚本，生成json文件。需要安装PIL，Windows平台去<a href="http://pythonware.com/products/pil/" title="PIL官方网站" target="_blank" rel="noopener">PIL官方网站</a>下载exe安装包比较简单（官网只有32位的PIL，刚好我的python也是32位的）<br>•需要注意的是tool.py代码中../nodeji-hexo/source/photos/data.json是对应到我的博客的路径，这里根据需要改成自己博客的路径<br>4、github提交<br>•处理完成之后需要将处理后的图片提交到github上<br>•这里同样使用脚本的方式，需要将git命令行配置到环境变量中</p>
+        <p>IntelliJ IDEA（简称 IDEA），是 Java 语言开发的集成环境，IDEA 在业界被公认为最好的 Java 开发工具之一，尤其在智能代码助手、代码自动提示、重构、J2EE 支持、各类版本工具（Git、SVN、GitHub 等）、JUnit、CVS 整合、代码分析和创新的 GUI 设计等方面的功能都值得称道。这篇文章主要讲一讲IDEA的使用技巧。</p>
+<h2 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h2><p>1、进入实现方法的快捷键<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ctrl + Alt + 鼠标点击</span><br></pre></td></tr></table></figure></p>
+<p>2、自动给方法添加注释的快捷键<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">输入/**,然后回车</span><br></pre></td></tr></table></figure></p>
+<p>3、删除一行<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CTRL + Y / CTRL + X</span><br></pre></td></tr></table></figure></p>
+<p>4、复制一行<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CTRL + D</span><br></pre></td></tr></table></figure></p>
+<p>5、自动导入包<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALT + Enter</span><br></pre></td></tr></table></figure></p>
+<p>6、生成getter、setter方式<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALT + insert</span><br></pre></td></tr></table></figure></p>
+<p>7、实现接口方法<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CTRL + O</span><br></pre></td></tr></table></figure></p>
+<p>8、移动整个代码块<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ctrl + SHIfT + 上下箭头</span><br></pre></td></tr></table></figure></p>
+<p>9、返回至上次浏览的位置<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ctrl + ALT + 左/右</span><br></pre></td></tr></table></figure></p>
+<p>10、查找和替换<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ctrl + SHIfT + R，替换文本 Ctrl + SHIfT + F，查找文本</span><br></pre></td></tr></table></figure></p>
+<p>11、 debug<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ctrl+F1 ,显示结果</span><br><span class="line">F9 ,下一个断点 F8 ,下一步</span><br></pre></td></tr></table></figure></p>
+<p>12、 移动代码<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Alt+Shift+Up/Down，上/下移一行</span><br></pre></td></tr></table></figure></p>
+<h2 id="错误"><a href="#错误" class="headerlink" title="错误"></a>错误</h2><p>1、maven导入项目报错<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Failed to read artifact descriptor <span class="keyword">for</span> org.springframework.cloud:spring-cloud-starter-eureka-server:jar:<span class="number">1.3</span><span class="number">.0</span>.RELE intellij inspects a maven model <span class="keyword">for</span> resolution problems</span><br></pre></td></tr></table></figure></p>
+<p>不同project下面存在相同的module,导致此问题，删除其它project中项目，再次导入OK。</p>
+<p>2、gradle no cached version available for offline mode<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Error:No cached version of org.springframework.boot:spring-boot-gradle-plugin:<span class="number">1.5</span><span class="number">.4</span>.RELEASE available <span class="keyword">for</span> offline mode.</span><br></pre></td></tr></table></figure></p>
+<p>抱这个错误直接把gradle中的offline work关掉就可以解决：File &gt; Settings &gt; Gradle 中的offline work 的勾去掉。</p>
+<h2 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h2><p>1、添加插件mac</p>
+<ul>
+<li>Intellij IDEA 菜单 -》Preferences-》Plugins 选项卡</li>
+</ul>
+<p>2、添加插件lombok</p>
+<p>lombok是一个标准的java bean需要有getter和setter方法，有时候些代码很冗余，而lombok可以简化我们的代码，在源码中没有getter和setter方法，但是在编译生成的字节码文件中有getter<br>和setter方法，这只是lombok其中的一个功能。</p>
+<p>安装步骤：</p>
+<ul>
+<li>用快捷键Ctrl+Alt+S打开：Settings→Plugins→Browse repositories</li>
+<li>输入lombok后选择Install，安装插件</li>
+<li>按照提示重启IDEA即可</li>
+<li>安装重启之后，还需要设置Settings &gt; Build &gt; Compiler &gt; Annotation Processors，要不然会有lombok requires annotation processing提示。</li>
+</ul>
+<p>3、开启自动 import 包的功能</p>
+<p>Java就是这种包组合在一个的一个东西, 我们在写代码时常常需要引入一些类, 一些第三方的包. IDEA提供了这个功能, 不过默认是关闭的. 打开自动导入包设置如下:<br>Editor =》General =》Auto import =》Optimize imports on the fly</p>
 
       
 
@@ -201,7 +228,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">开发工具</a>
         		</li>
       		
 		</ul>
@@ -211,7 +238,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/23/yilia主题添加livere来必力评论和相册功能/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/03/22/IDEA使用总结/">展开全文 >></a>
         </p>
       
 
@@ -244,7 +271,7 @@ var _hmt = _hmt || [];
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/7/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/9/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/7/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><a class="extend next" rel="next" href="/page/9/">Next &raquo;</a>
     </nav>
   
 
@@ -396,7 +423,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Nginx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">开发工具</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Spring Boot</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -408,19 +443,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Nginx</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+                <a href="javascript:void(0)" class="js-tag color4">小程序</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">小程序</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
             
             <div class="clearfix"></div>
