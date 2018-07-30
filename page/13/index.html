@@ -157,37 +157,38 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-yilia主题添加livere来必力评论和相册功能" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-用LeanCloud平台为Hexo博客添加浏览量统计" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/23/yilia主题添加livere来必力评论和相册功能/">yilia主题添加livere来必力评论和相册功能</a>
+      <a class="article-title" href="/2017/03/24/用LeanCloud平台为Hexo博客添加浏览量统计/">用LeanCloud平台为Hexo博客添加浏览量统计</a>
     </h1>
   
 
 
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> Read:<span id="/2017/03/23/yilia主题添加livere来必力评论和相册功能/" class="pageViews">0</span>
+      <i class="icon-smile icon"></i> Read:<span id="/2017/03/24/用LeanCloud平台为Hexo博客添加浏览量统计/" class="pageViews">0</span>
   </a>
 
         
-        <a href="/2017/03/23/yilia主题添加livere来必力评论和相册功能/" class="archive-article-date">
-  	<time datetime="2017-03-23T05:44:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-23</time>
+        <a href="/2017/03/24/用LeanCloud平台为Hexo博客添加浏览量统计/" class="archive-article-date">
+  	<time datetime="2017-03-24T14:09:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-24</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>第三方评论有</strong>：畅言、来比力、网易云跟帖、多说deng。多说是最多用户使用的评论，但遗憾2017年6月将暂定服务；网易云跟帖也于8月1号停止服务；畅言必须进行域名备案；来必力是韩国人做的！当时萨德事件，我就没有选择，现在走头无路，发现这个做的也挺好的。</p>
-<h2 id="注册"><a href="#注册" class="headerlink" title="注册"></a>注册</h2><p>LiveRe 有两个版本：<br>City 版：是一款适合所有人使用的免费版本；<br>Premium 版：是一款能够帮助企业实现自动化管理的多功能收费版本<br>获取livere安装代码：<a href="https://livere.com/" title="注册" target="_blank" rel="noopener">点我注册</a></p>
-<h2 id="添加livere插件"><a href="#添加livere插件" class="headerlink" title="添加livere插件"></a>添加livere插件</h2><p>首先在 _config.yml 文件中添加如下配置：livere: true<br>然后\layout_partial\post目录下添加livere.ejs，把livere安装代码复制进去，文件内容如下，其中data-uid就是你自己的data-uid<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 来必力City版安装代码 --&gt;</span><br><span class="line">&lt;div id=&quot;lv-container&quot; data-id=&quot;city&quot; data-uid=&quot;your data-uid&quot;&gt;</span><br><span class="line">	&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">   (function(d, s) &#123;</span><br><span class="line">       var j, e = d.getElementsByTagName(s)[0];</span><br><span class="line"></span><br><span class="line">       if (typeof LivereTower === &apos;function&apos;) &#123; return; &#125;</span><br><span class="line"></span><br><span class="line">       j = d.createElement(s);</span><br><span class="line">       j.src = &apos;https://cdn-city.livere.com/js/embed.dist.js&apos;;</span><br><span class="line">       j.async = true;</span><br><span class="line"></span><br><span class="line">       e.parentNode.insertBefore(j, e);</span><br><span class="line">   &#125;)(document, &apos;script&apos;);</span><br><span class="line">	&lt;/script&gt;</span><br><span class="line">&lt;noscript&gt; 为正常使用来必力评论功能请激活JavaScript&lt;/noscript&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;!-- City版安装代码已完成 --&gt;</span><br></pre></td></tr></table></figure></p>
-<p>最后在layout_partial\article.ejs中&lt;% if (!index &amp;&amp; post.comments){ %&gt;后面添加如下代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if (theme.livere)&#123; %&gt;</span><br><span class="line">&lt;%- partial(&apos;post/livere&apos;, &#123;</span><br><span class="line">    key: post.slug,</span><br><span class="line">    title: post.title,</span><br><span class="line">    url: config.url+url_for(post.path)</span><br><span class="line">  &#125;) %&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure><br>至此，为yilia主题添加livere评论插件完成。如果你想使用畅言评论系统，可以进入<a href="https://changyan.kuaizhan.com/" title="畅言官网" target="_blank" rel="noopener">畅言官网</a>, 点击右上角 “免费注册”，并填写注册信息。（注意域名需要备案信息）</p>
-<h2 id="实现相册功能"><a href="#实现相册功能" class="headerlink" title="实现相册功能"></a>实现相册功能</h2><p>1、github操作<br>建立一个用于存储相册的仓库，将本地仓库提交到github<br>2、博客操作<br>•在博客的source文件夹下建立一个photos文件夹，将样式文件放到photos文件夹下<br>•修改ins.js文件，主要是里面的render函数 ，其中的url对应到你的github放图片的地址<br>3、图片处理<br>•执行python脚本，生成json文件。需要安装PIL，Windows平台去<a href="http://pythonware.com/products/pil/" title="PIL官方网站" target="_blank" rel="noopener">PIL官方网站</a>下载exe安装包比较简单（官网只有32位的PIL，刚好我的python也是32位的）<br>•需要注意的是tool.py代码中../nodeji-hexo/source/photos/data.json是对应到我的博客的路径，这里根据需要改成自己博客的路径<br>4、github提交<br>•处理完成之后需要将处理后的图片提交到github上<br>•这里同样使用脚本的方式，需要将git命令行配置到环境变量中</p>
+        <h2 id="创建Lean-Cloud应用"><a href="#创建Lean-Cloud应用" class="headerlink" title="创建Lean Cloud应用"></a>创建Lean Cloud应用</h2><blockquote><p><a href="https://leancloud.cn/" title="LeanCloud" target="_blank" rel="noopener">LeanCloud</a>提供一站式后端云服务，从数据存储、实时聊天、消息推送到移动统计，涵盖应用开发的多方面后端需求。我们只用到它的数据存储部分,具体步骤如下：<br>1.首先到『控制台』创建一个应用，名字随便取。<br>2.点击新建应用的『数据』选项，选择『创建Class』，取名为”Counter“。<br>3.点击新建应用右上角的齿轮，在『应用Key』选项里得到APP ID 和 APP Key，在后面会用到。</p>
+</blockquote>
+<p><strong>在 yilia 主题下修改 _config.yml 添加如下配置信息</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># 添加浏览量</span><br><span class="line">leancloud_visitors:</span><br><span class="line">  enable: true</span><br><span class="line">  app_id: ************** </span><br><span class="line">  app_key: ************</span><br><span class="line">#添加一下js插件的 CDN地址</span><br><span class="line">js_cdn:</span><br><span class="line">  jquery: https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js</span><br><span class="line">  av : //cdn1.lncld.net/static/js/2.5.0/av-min.js</span><br></pre></td></tr></table></figure></p>
+<p><strong>找到主题下 layout_parial\post 找到 title.ejs 文件,添加显示阅读量的html代码:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if (post.link)&#123; %&gt;</span><br><span class="line">  &lt;h1 itemprop=&quot;name&quot;&gt;</span><br><span class="line">    &lt;a class=&quot;&lt;%= class_name %&gt;&quot; href=&quot;&lt;%- url_for(post.link) %&gt;&quot; target=&quot;_blank&quot; itemprop=&quot;url&quot;&gt;&lt;%= post.title %&gt;&lt;/a&gt;</span><br><span class="line">  &lt;/h1&gt;</span><br><span class="line">&lt;% &#125; else if (post.title)&#123; %&gt;</span><br><span class="line">  &lt;% if (index)&#123; %&gt;</span><br><span class="line">    &lt;h1 itemprop=&quot;name&quot;&gt;</span><br><span class="line">      &lt;a class=&quot;&lt;%= class_name %&gt;&quot; href=&quot;&lt;%- url_for(post.path) %&gt;&quot;&gt;&lt;%= post.title %&gt;&lt;/a&gt;</span><br><span class="line">    &lt;/h1&gt;</span><br><span class="line">  &lt;% &#125; else &#123; %&gt;</span><br><span class="line">    &lt;h1 class=&quot;&lt;%= class_name %&gt;&quot; itemprop=&quot;name&quot;&gt;</span><br><span class="line">      &lt;%= post.title %&gt;</span><br><span class="line">    &lt;/h1&gt;</span><br><span class="line">  &lt;% &#125; %&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br><span class="line">#上面是 yilia 主题的标题 下面是我自己添加的阅读量 html 代码</span><br><span class="line"># span 给的 id 是文章的 url 作为唯一的 key 值</span><br><span class="line">&lt;% if (theme.leancloud_visitors.enable)&#123; %&gt;</span><br><span class="line">  &lt;a href=&quot;javascript:;&quot; class=&quot;archive-article-date&quot;&gt;</span><br><span class="line">      &lt;i class=&quot;icon-smile icon&quot;&gt;&lt;/i&gt; 阅读数:&lt;span id=&quot;&lt;%- url_for(post.path) %&gt;&quot; class=&quot;pageViews&quot;&gt;0&lt;/span&gt;次</span><br><span class="line">  &lt;/a&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure></p>
+<p><strong>添加 js 代码, 在layout_parial 找到 after.footer.ejs 添加如下代码:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;&lt;%- theme.js_cdn.jquery %&gt;&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;% if (theme.leancloud_visitors.enable)&#123; %&gt;</span><br><span class="line">//这是自定一个js文件,放在 layout\_parial\post 目录 leancloud.ejs中</span><br><span class="line">&lt;%- partial(&apos;post/leancloud&apos;) %&gt; </span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure></p>
+<p><strong>创建leancloud.ejs 添加内容如下:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;&lt;%- theme.js_cdn.av %&gt;&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt; </span><br><span class="line">if(&lt;%- theme.leancloud_visitors.enable %&gt;)&#123;</span><br><span class="line">    var leancloud_app_id  = &apos;&lt;%- theme.leancloud_visitors.app_id %&gt;&apos;;</span><br><span class="line">    var leancloud_app_key = &apos;&lt;%- theme.leancloud_visitors.app_key %&gt;&apos;;</span><br><span class="line">    AV.init(&#123;</span><br><span class="line">        appId: leancloud_app_id,</span><br><span class="line">        appKey: leancloud_app_key</span><br><span class="line">    &#125;);</span><br><span class="line">    var pageViewsLength = $(&quot;.pageViews&quot;).length;</span><br><span class="line">    var isIndex = $(&quot;.pageViews&quot;).length &gt; 1 ?true:false;</span><br><span class="line">    function showTime() &#123;</span><br><span class="line">        var Counter = AV.Object.extend(&quot;Counter&quot;);</span><br><span class="line">        if(isIndex)&#123;</span><br><span class="line">            $(&quot;.pageViews&quot;).each(function()&#123;</span><br><span class="line">                showPageViewsNum($(this),Counter);</span><br><span class="line">                addPageViewsNum($(this));</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            showPageViewsNum($(&quot;.pageViews&quot;),Counter);</span><br><span class="line">            addPageViewsNum($(&quot;.pageViews&quot;));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    //显示阅读量</span><br><span class="line">    function showPageViewsNum(ele,Counter)&#123;</span><br><span class="line">        var query = new AV.Query(&quot;Counter&quot;);</span><br><span class="line">        var url = ele.attr(&apos;id&apos;).trim();</span><br><span class="line">            query.equalTo(&quot;words&quot;, url);</span><br><span class="line">            query.count().then(function (number) &#123;</span><br><span class="line">                $(document.getElementById(url)).text(number?  number : &apos;0&apos;);</span><br><span class="line">            &#125;, function (error) &#123;</span><br><span class="line">                 $(document.getElementById(url)).text(&apos;0&apos;);</span><br><span class="line">            &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    //追加阅读量</span><br><span class="line">    function addPageViewsNum(ele)&#123;</span><br><span class="line">        var url = ele.attr(&apos;id&apos;).trim();</span><br><span class="line">        var Counter = AV.Object.extend(&quot;Counter&quot;);</span><br><span class="line">        var query = new Counter;</span><br><span class="line">        query.save(&#123;</span><br><span class="line">            words: url</span><br><span class="line">        &#125;).then(function (object) &#123;&#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    if(pageViewsLength)&#123; //此处判断等于 1 在执行 可去除循环</span><br><span class="line">        showTime();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure><br><strong>注意</strong>：要在 leancloud [安全中心] [Web 安全域名] 设置2个安全域名,一个是正式环境的域名,一个是调试的域名.不然会报错.</p>
 
       
 
@@ -211,7 +212,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/23/yilia主题添加livere来必力评论和相册功能/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/03/24/用LeanCloud平台为Hexo博客添加浏览量统计/">展开全文 >></a>
         </p>
       
 
@@ -244,7 +245,7 @@ var _hmt = _hmt || [];
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/12/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><a class="extend next" rel="next" href="/page/14/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/12/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><a class="extend next" rel="next" href="/page/14/">Next &raquo;</a>
     </nav>
   
 
@@ -392,7 +393,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Spring Boot</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -404,7 +417,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Spring Boot</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -416,15 +429,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">小程序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
             
             <div class="clearfix"></div>

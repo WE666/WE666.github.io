@@ -157,45 +157,91 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-数据结构-二叉树" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-用hexo在github上构建博客系统" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/18/数据结构-二叉树/">数据结构-二叉树</a>
+      <a class="article-title" href="/2017/03/21/用hexo在github上构建博客系统/">用hexo在github上构建博客系统</a>
     </h1>
   
 
 
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> Read:<span id="/2017/02/18/数据结构-二叉树/" class="pageViews">0</span>
+      <i class="icon-smile icon"></i> Read:<span id="/2017/03/21/用hexo在github上构建博客系统/" class="pageViews">0</span>
   </a>
 
         
-        <a href="/2017/02/18/数据结构-二叉树/" class="archive-article-date">
-  	<time datetime="2017-02-18T05:24:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-18</time>
+        <a href="/2017/03/21/用hexo在github上构建博客系统/" class="archive-article-date">
+  	<time datetime="2017-03-21T10:44:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-21</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <blockquote>
-<p>二叉树的特点是每个节点最多有两个分支，即二叉树中不存在度大于2的结点。</p>
-</blockquote>
-<h2 id="二叉树的遍历"><a href="#二叉树的遍历" class="headerlink" title="二叉树的遍历"></a>二叉树的遍历</h2><ul>
-<li>先序遍历(根-左-右)</li>
-<li>中序遍历(左-根-右)</li>
-<li>后续遍历(左-右-根)</li>
+        <p>Hexo 是一个简单地、轻量地、基于Node的一个静态博客框架。通过Hexo我们可以快速创建自己的博客，仅需要几条命令就可以完成。发布时，Hexo可以部署在自己的Node服务器上面，也可以部署github上面。对于个人用户来说，部署在github上好处颇多，不仅可以省去服务器的成本，还可以减少各种系统运维的麻烦事(系统管理、备份、网络)。所以，基于github的个人站点，正在开始流行起来….</p>
+<p>Hexo的官方网站：<a href="http://hexo.io/" target="_blank" rel="noopener">http://hexo.io/</a> ，也是基于Github构建的网站。</p>
+<h2 id="1-Hexo安装"><a href="#1-Hexo安装" class="headerlink" title="1.Hexo安装"></a>1.Hexo安装</h2><p>系统环境</p>
+<ul>
+<li>win7 64bit</li>
+<li>node v4.4.3</li>
+<li>npm 2.15.1</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line">package com.lq.bintree;</span><br><span class="line"></span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.List;</span><br><span class="line"></span><br><span class="line">public class BinTree &#123;  </span><br><span class="line">    private BinTree leftChild;   //左孩子结点</span><br><span class="line">    private BinTree rightChild;  //右孩子结点  </span><br><span class="line">    private BinTree root;		 //根节点结点  </span><br><span class="line">    private Object data; 		//数据域  </span><br><span class="line">    private List&lt;BinTree&gt; datas;//存储所有的节点  </span><br><span class="line">    public BinTree(BinTree leftChild, BinTree rightChild, Object data) &#123;  </span><br><span class="line">        super();  </span><br><span class="line">        this.leftChild = leftChild;  </span><br><span class="line">        this.rightChild = rightChild;  </span><br><span class="line">        this.data = data;  </span><br><span class="line">    &#125;  </span><br><span class="line">    public BinTree(Object data) &#123;  </span><br><span class="line">        this(null, null, data);  </span><br><span class="line">    &#125;  </span><br><span class="line">    public BinTree() &#123;  </span><br><span class="line">        super();  </span><br><span class="line">    &#125;  </span><br><span class="line">      </span><br><span class="line">    public void createTree(Object[] objs)&#123;  </span><br><span class="line">        datas=new ArrayList&lt;BinTree&gt;();  </span><br><span class="line">        for (Object object : objs) &#123;  </span><br><span class="line">            datas.add(new BinTree(object));  </span><br><span class="line">        &#125;  </span><br><span class="line">        root=datas.get(0);//将第一个作为根节点  </span><br><span class="line">        for (int i = 0; i &lt; objs.length/2; i++) &#123;  </span><br><span class="line">            datas.get(i).leftChild=datas.get(i*2+1);  </span><br><span class="line">            if(i*2+2&lt;datas.size())&#123;//避免偶数的时候 下标越界  </span><br><span class="line">                datas.get(i).rightChild=datas.get(i*2+2);  </span><br><span class="line">            &#125;  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">    //先序遍历(递归)  </span><br><span class="line">    public void preorder(BinTree root)&#123;  </span><br><span class="line">        if(root!=null)&#123;  </span><br><span class="line">            visit(root.getData());  </span><br><span class="line">            preorder(root.leftChild);  </span><br><span class="line">            preorder(root.rightChild);  </span><br><span class="line">        &#125;  </span><br><span class="line">          </span><br><span class="line">    &#125;  </span><br><span class="line">    //中序遍历(递归)  </span><br><span class="line">    public void inorder(BinTree root)&#123;  </span><br><span class="line">        if(root!=null)&#123;  </span><br><span class="line">            inorder(root.leftChild);  </span><br><span class="line">            visit(root.getData());  </span><br><span class="line">            inorder(root.rightChild);  </span><br><span class="line">        &#125;  </span><br><span class="line">          </span><br><span class="line">    &#125;  </span><br><span class="line">    //后序遍历(递归)  </span><br><span class="line">    public void afterorder(BinTree root)&#123;  </span><br><span class="line">        if(root!=null)&#123;  </span><br><span class="line">            afterorder(root.leftChild);  </span><br><span class="line">            afterorder(root.rightChild);  </span><br><span class="line">            visit(root.getData());  </span><br><span class="line">        &#125;  </span><br><span class="line">          </span><br><span class="line">    &#125;  </span><br><span class="line">    private void visit(Object obj) &#123;  </span><br><span class="line">        System.out.print(obj+&quot; &quot;);  </span><br><span class="line">    &#125;  </span><br><span class="line">    public Object getData() &#123;  </span><br><span class="line">        return data;  </span><br><span class="line">    &#125;  </span><br><span class="line">    public BinTree getRoot() &#123;  </span><br><span class="line">        return root;  </span><br><span class="line">    &#125;  </span><br><span class="line">      </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>测试<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">package com.lq.bintree;</span><br><span class="line"></span><br><span class="line">public class TestTree &#123;</span><br><span class="line">	 public static void main(String[] args) &#123;  </span><br><span class="line">	        BinTree binTree=new BinTree();  </span><br><span class="line">	        Object[] objs=&#123;0,1,2,3,4,5,6,7&#125;;  </span><br><span class="line">//	        Object[] objs=&#123;&quot;a&quot;,&quot;b&quot;,&quot;c&quot;,&quot;d&quot;,&quot;e&quot;,&quot;f&quot;,&quot;g&quot;,&quot;h&quot;,&quot;i&quot;,&quot;j&quot;,&quot;k&quot;,&quot;l&quot;&#125;; </span><br><span class="line">	        binTree.createTree(objs);  </span><br><span class="line">	      binTree.preorder(binTree.getRoot()); //先序遍历  </span><br><span class="line">//	      binTree.inorder(binTree.getRoot()); //中序遍历  </span><br><span class="line">//	        binTree.afterorder(binTree.getRoot()); //后序遍历  </span><br><span class="line">	    &#125;  </span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>先序遍历的结果为:0  1   3  7  4  2  5  6</p>
-<p>中序遍历的结果为:7   3   1  4  0  5  2  6</p>
-<p>后序遍历的结果为:7   3   4  1  5  6  2  0</p>
+<p>Hexo安装，要用全局安装，加-g参数<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D:\&gt; npm install -g hexo</span><br></pre></td></tr></table></figure></p>
+<p>查看hexo的版本<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D:\&gt;hexo version</span><br></pre></td></tr></table></figure></p>
+<p>安装好后，使用Hexo创建项目<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D:\workspace\javascript&gt; hexo init nodejs-hexo</span><br></pre></td></tr></table></figure></p>
+<p>创建helloword.md文件，之后便以markdown语法写文章<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D:\workspace\javascript\nodejs-hexo&gt;hexo new helloword</span><br></pre></td></tr></table></figure></p>
+<p>进入目录，并启动Hexo服务器。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D:\workspace\javascript\nodejs-hexo&gt;hexo server</span><br></pre></td></tr></table></figure></p>
+<p>这时端口4000被打开了，我们可以通过浏览器打开地址，<a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a></p>
+<h2 id="2-Hexo的使用"><a href="#2-Hexo的使用" class="headerlink" title="2.Hexo的使用"></a>2.Hexo的使用</h2><p><strong>目录和文件</strong></p>
+<ul>
+<li>scaffolds 脚手架，也就是一个工具模板</li>
+<li>scripts 写文件的js，扩展hexo的功能</li>
+<li>source 存放博客正文内容</li>
+<li>source/_posts 文件箱</li>
+<li>themes 存放皮肤的目录</li>
+<li>themes/landscape 默认的皮肤</li>
+<li>_config.yml 全局的配置文件</li>
+<li>db.json 静态常量</li>
+</ul>
+<p>_posts目录：Hexo是一个静态博客框架，因此没有数据库。文章内容都是以文本文件方式进行存储的，直接存储在_posts的目录。Hexo天生集成了markdown，我们可以直接使用markdown语法格式写博客，例如:hello-world.md。新增加一篇文章，就在_posts目录，新建一个xxx.md的文件。</p>
+<p>themes目录：是存放皮肤的，包括一套Javascript+CSS样式和基于EJS的模板设置。通过在themes目录下，新建一个子目录，就可以创建一套新的皮肤，当然我们也可以直接在landscape上面修改。</p>
+<p>_config.yml：是全局的配置文件：很多的网站配置都在这个文件中定义。</p>
+<h2 id="3-发布项目到github"><a href="#3-发布项目到github" class="headerlink" title="3.发布项目到github"></a>3.发布项目到github</h2><p><strong>注册github帐号 <a href="https://github.com/" target="_blank" rel="noopener">https://github.com/</a> </strong></p>
+<p><strong>创建repository：WE666.github.io</strong></p>
+<p><strong>配置GitHub账户信息</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --<span class="keyword">global</span> user.name <span class="string">"yourname"</span></span><br><span class="line">git config --<span class="keyword">global</span> user.email <span class="string">"youremail@example.com"</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>生成SSH密钥</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C <span class="string">"youremail@example.com"</span> </span><br><span class="line">Generating public/private rsa key pair.</span><br><span class="line">Enter file <span class="keyword">in</span> which to save the key (/Users/your_user_directory/.ssh/id_rsa):&lt;回车就好&gt;</span><br><span class="line">Enter passphrase (empty <span class="keyword">for</span> no passphrase):&lt;输入加密串&gt;</span><br><span class="line">Enter same passphrase again:&lt;再次输入加密串&gt;</span><br></pre></td></tr></table></figure></p>
+<p><strong>添加SSH Key到GitHub：</strong></p>
+<p>在本机设置SSH Key之后，需要添加到GitHub上，以完成SSH链接的设置。</p>
+<ul>
+<li>打开id_rsa.pub文件（ 参考地址 C:\Documents and Settings\Administrator.ssh\id_rsa.pub），复制里面的内容</li>
+<li>登陆 GitHub 系统。点击右上角的 Account Settings—&gt;SSH Public keys —&gt; add another public keys</li>
+<li>把本地生成的密钥复制到里面（ key 文本框中），最后点击Add SSH key，这样就把公钥导入到GitHub上去啦</li>
+</ul>
+<p>验证是否导入成功：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cd ~/.ssh                 //如果提示：No such file <span class="keyword">or</span> directory 说明你是第一次使用 git</span><br><span class="line">$ ssh -T git@github.com     //如果提示输入密码则导入成功</span><br></pre></td></tr></table></figure></p>
+<p><strong>静态化处理</strong></p>
+<p>写完了文章，我们就可以发布了。要说明的一点是hexo的静态博客框架，静态博客是只包含html, javascript, css文件的网站，没有动态的脚本。虽然我们是用Node进行的开发，但博客的发布后就与Node无关了。在发布之前，我们要通过一条命令，把所有的文章都做静态化处理，就是生成对应的html, javascript, css，使得所有的文章都是由静态文件组成的。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D:\workspace\javascript\nodejs-hexo&gt;hexo generate</span><br></pre></td></tr></table></figure></p>
+<p>在本地目录下，会生成一个public的目录，里面包括了所有静态化的文件</p>
+<p><strong>发布到github</strong></p>
+<p>编辑全局配置文件：_config.yml，找到deploy的部分，设置github的项目地址。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: https://github.com/WE666/WE666.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure></p>
+<p>然后，通过命令进行部署（部署过程中会遇到之前设置的账号和密码）<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D:\workspace\javascript\nodejs-hexo&gt;hexo deploy</span><br></pre></td></tr></table></figure></p>
+<p>然后，点击”Settings”，找到GitHub Pages，提示“ Your site is published at <a href="https://we666.github.io/" target="_blank" rel="noopener">https://we666.github.io/</a> ”，打开链接，就是我们刚刚发布的站点。</p>
+<p><strong>hexo现在支持更加简单的命令格式了，比如：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo g == hexo generate</span><br><span class="line">hexo d == hexo deploy</span><br><span class="line">hexo s == hexo server</span><br><span class="line">hexo n == hexo new &quot;HelloWord&quot;</span><br></pre></td></tr></table></figure></p>
+<p><strong>注意：</strong>每次修改本地文件后，需要执行hexo g命令才能保存。每次使用命令时，都要在Hexo目录下。每次上传文件到Github时，就要执行hexo g命令保存之后，再执行hexo d命令。</p>
+<h2 id="4-替换皮肤"><a href="#4-替换皮肤" class="headerlink" title="4.替换皮肤"></a>4.替换皮肤</h2><p>打开hexo的皮肤列表页面，你可以找到很多的皮肤，网页地址：<a href="https://github.com/tommy351/hexo/wiki/Themes" target="_blank" rel="noopener">https://github.com/tommy351/hexo/wiki/Themes</a> </p>
+<p>通过git命令下载皮肤，放到themes目录下<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/litten/hexo-theme-yilia.git themes/hexo-theme-yilia</span><br></pre></td></tr></table></figure></p>
+<p>在_config.yml指定皮肤：找到theme一行，改成theme: hexo-theme-yilia</p>
+<p>本地启动hexo服务器，打开浏览器 <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a><br>然后静态化处理，再发布到github，就完成了站点的改版。</p>
+<h2 id="5-开始写作"><a href="#5-开始写作" class="headerlink" title="5.开始写作"></a>5.开始写作</h2><p>通过下面的命令，就可以创建新文章<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">D:\workspace\javascript\nodejs-hexo&gt;hexo new 新的开始</span><br><span class="line">[info] File created at D:\workspace\javascript\nodejs-hexo\source\_posts\新的开始.md</span><br></pre></td></tr></table></figure></p>
+<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><blockquote><p>Every interaction is both precious and an opportunity to delight.</p>
+<footer><strong>Seth Godin</strong><cite><a href="http://sethgodin.typepad.com/seths_blog/2009/07/welcome-to-island-marketing.html" target="_blank" rel="noopener">Welcome to Island Marketing</a></cite></footer></blockquote>
+<h2 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h2><figure class="highlight plain"><figcaption><span>.compact</span><a href="http://underscorejs.org/#compact" target="_blank" rel="noopener">Underscore.js</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">.compact([0, 1, false, 2, ‘’, 3]);</span><br><span class="line">=&gt; [1, 2, 3]</span><br></pre></td></tr></table></figure>
+<h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% link 我的链接 https://github.com/ 我的github %&#125;</span><br></pre></td></tr></table></figure>
+<a href="https://github.com/" title="我的github" target="_blank" rel="noopener">我的链接</a>
 
       
 
@@ -209,7 +255,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
         		</li>
       		
 		</ul>
@@ -219,7 +265,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/02/18/数据结构-二叉树/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/03/21/用hexo在github上构建博客系统/">展开全文 >></a>
         </p>
       
 
@@ -252,7 +298,7 @@ var _hmt = _hmt || [];
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/14/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><span class="page-number current">15</span><a class="page-number" href="/page/16/">16</a><a class="page-number" href="/page/17/">17</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><a class="extend next" rel="next" href="/page/16/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/14/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><span class="page-number current">15</span><a class="page-number" href="/page/16/">16</a><a class="page-number" href="/page/17/">17</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><a class="extend next" rel="next" href="/page/16/">Next &raquo;</a>
     </nav>
   
 
@@ -400,7 +446,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Spring Boot</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -412,7 +470,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Spring Boot</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -424,15 +482,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">小程序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
             
             <div class="clearfix"></div>
