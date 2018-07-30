@@ -6,11 +6,11 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 小程序 | Jason&#39;Blog</title>
+  <title>Jason&#39;Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
 <meta property="og:title" content="Jason&#39;Blog">
-<meta property="og:url" content="http://yoursite.com/tags/小程序/index.html">
+<meta property="og:url" content="http://yoursite.com/page/23/index.html">
 <meta property="og:site_name" content="Jason&#39;Blog">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Jason&#39;Blog">
@@ -157,64 +157,97 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
-  
+    <article id="post-数据结构-数组" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/28/搭建微信小程序服务/" class="archive-article-date">
-  	<time datetime="2017-03-28T03:16:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-28</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/28/搭建微信小程序服务/">搭建微信小程序服务</a>
+      <a class="article-title" href="/2017/02/12/数据结构-数组/">数据结构-数组</a>
     </h1>
   
 
 
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> Read:<span id="/2017/03/28/搭建微信小程序服务/" class="pageViews">0</span>
+      <i class="icon-smile icon"></i> Read:<span id="/2017/02/12/数据结构-数组/" class="pageViews">0</span>
   </a>
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/02/12/数据结构-数组/" class="archive-article-date">
+  	<time datetime="2017-02-12T05:24:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-无序数组"><a href="#1-无序数组" class="headerlink" title="1. 无序数组"></a>1. 无序数组</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line">package com.lq.dataStruct;</span><br><span class="line"></span><br><span class="line">public class MyArray &#123;</span><br><span class="line">    private long[] arr;</span><br><span class="line">    //表示有效数据的长度</span><br><span class="line">    private int elements;</span><br><span class="line"></span><br><span class="line">    public MyArray() &#123;</span><br><span class="line">        arr = new long[50];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public MyArray(int maxsize) &#123;</span><br><span class="line">        arr = new long[maxsize];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 添加数据</span><br><span class="line">     */</span><br><span class="line">    public void insert(long value)&#123;</span><br><span class="line">        arr[elements] = value;</span><br><span class="line">        elements++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 显示数据</span><br><span class="line">     */</span><br><span class="line">    public void display()&#123;</span><br><span class="line">        System.out.print(&quot;[&quot;);</span><br><span class="line">        for (int i = 0;i &lt; elements;i++)&#123;</span><br><span class="line">            System.out.print(arr[i]+&quot; &quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.print(&quot;]&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 查找数据(根据元素查找)</span><br><span class="line">     */</span><br><span class="line">    public int search(long value)&#123;</span><br><span class="line">        int i;</span><br><span class="line">        for (i = 0;i &lt; elements;i++)&#123;</span><br><span class="line">            if (value == arr[i])&#123;</span><br><span class="line">                break;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        //是否查到最后一个了</span><br><span class="line">        if (i == elements)&#123;</span><br><span class="line">            return -1;  //查找不到</span><br><span class="line">        &#125;else &#123;</span><br><span class="line">            return i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    /**</span><br><span class="line">     * 根据索引查找</span><br><span class="line">     */</span><br><span class="line">    public long get(int index)&#123;</span><br><span class="line">        if (index &gt;= elements || index &lt; 0)&#123;</span><br><span class="line">            throw new ArrayIndexOutOfBoundsException();</span><br><span class="line">        &#125;else &#123;</span><br><span class="line">            return arr[index];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    /**</span><br><span class="line">     * 删除数据</span><br><span class="line">     */</span><br><span class="line">    public void delete(int index)&#123;</span><br><span class="line">        if (index &gt;= elements || index &lt; 0)&#123;</span><br><span class="line">            throw new ArrayIndexOutOfBoundsException();</span><br><span class="line">        &#125;else &#123;</span><br><span class="line">            for (int i = index;i &lt; elements;i++)&#123;</span><br><span class="line">                arr[index] = arr[index+1];</span><br><span class="line">            &#125;</span><br><span class="line">            elements--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    /**</span><br><span class="line">     * 更新数据</span><br><span class="line">     */</span><br><span class="line">    public void update(int index,long newvalue)&#123;</span><br><span class="line">        if (index &gt;= elements || index &lt; 0)&#123;</span><br><span class="line">            throw new ArrayIndexOutOfBoundsException();</span><br><span class="line">        &#125;else &#123;</span><br><span class="line">            arr[index] = newvalue;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>有序数组(只在添加数据的时候做了改动)<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br></pre></td><td class="code"><pre><span class="line">package com.lq.dataStruct;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 有序数组</span><br><span class="line"> * Created by lq</span><br><span class="line"> * 2018/4/4 23.28</span><br><span class="line"> */</span><br><span class="line">public class MyOrderArray &#123;</span><br><span class="line">    private long[] arr;</span><br><span class="line">    //表示有效数据的长度</span><br><span class="line">    private int elements;</span><br><span class="line"></span><br><span class="line">    public MyOrderArray() &#123;</span><br><span class="line">        arr = new long[50];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public MyOrderArray(int maxsize) &#123;</span><br><span class="line">        arr = new long[maxsize];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 添加数据</span><br><span class="line">     */</span><br><span class="line">    public void insert(long value)&#123;</span><br><span class="line">        int i;</span><br><span class="line">        for (i = 0;i&lt;elements;i++)&#123;</span><br><span class="line">            if (arr[i] &gt; value)&#123;</span><br><span class="line">                break;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        for (int j = elements;j&gt;i;j--)&#123;</span><br><span class="line">            arr[j] = arr[j-1];</span><br><span class="line">        &#125;</span><br><span class="line">        arr[i] = value;</span><br><span class="line">        elements++;</span><br><span class="line">    &#125;</span><br><span class="line">    /**</span><br><span class="line">     * 二分法查找(前提是有序数组)</span><br><span class="line">     */</span><br><span class="line">    public int binarySearch(long value)&#123;</span><br><span class="line">        int pow = elements;</span><br><span class="line">        int low = 0;</span><br><span class="line">        int middle;</span><br><span class="line">        while (true)&#123;</span><br><span class="line">            middle = (pow+low)/2;</span><br><span class="line">            if (arr[middle] == value)&#123;</span><br><span class="line">                return middle;</span><br><span class="line">            &#125;else &#123;</span><br><span class="line">                if (arr[middle]&gt;value)&#123;</span><br><span class="line">                    pow = middle - 1;  //如果数组中间的值比value大，middle-1</span><br><span class="line">                &#125;else &#123;</span><br><span class="line">                    low = middle + 1; //如果小，最小届加一</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 显示数据</span><br><span class="line">     */</span><br><span class="line">    public void display()&#123;</span><br><span class="line">        System.out.print(&quot;[&quot;);</span><br><span class="line">        for (int i = 0;i &lt; elements;i++)&#123;</span><br><span class="line">            System.out.print(arr[i]+&quot; &quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.print(&quot;]&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 查找数据(根据元素查找)</span><br><span class="line">     */</span><br><span class="line">    public int search(long value)&#123;</span><br><span class="line">        int i;</span><br><span class="line">        for (i = 0;i &lt; elements;i++)&#123;</span><br><span class="line">            if (value == arr[i])&#123;</span><br><span class="line">                break;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        //是否查到最后一个了</span><br><span class="line">        if (i == elements)&#123;</span><br><span class="line">            return -1;  //查找不到</span><br><span class="line">        &#125;else &#123;</span><br><span class="line">            return i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    /**</span><br><span class="line">     * 根据索引查找</span><br><span class="line">     */</span><br><span class="line">    public long get(int index)&#123;</span><br><span class="line">        if (index &gt;= elements || index &lt; 0)&#123;</span><br><span class="line">            throw new ArrayIndexOutOfBoundsException();</span><br><span class="line">        &#125;else &#123;</span><br><span class="line">            return arr[index];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    /**</span><br><span class="line">     * 删除数据</span><br><span class="line">     */</span><br><span class="line">    public void delete(int index)&#123;</span><br><span class="line">        if (index &gt;= elements || index &lt; 0)&#123;</span><br><span class="line">            throw new ArrayIndexOutOfBoundsException();</span><br><span class="line">        &#125;else &#123;</span><br><span class="line">            for (int i = index;i &lt; elements;i++)&#123;</span><br><span class="line">                arr[index] = arr[index+1];</span><br><span class="line">            &#125;</span><br><span class="line">            elements--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    /**</span><br><span class="line">     * 更新数据</span><br><span class="line">     */</span><br><span class="line">    public void update(int index,long newvalue)&#123;</span><br><span class="line">        if (index &gt;= elements || index &lt; 0)&#123;</span><br><span class="line">            throw new ArrayIndexOutOfBoundsException();</span><br><span class="line">        &#125;else &#123;</span><br><span class="line">            arr[index] = newvalue;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>3.测试<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">public class TestMyArray &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">//        MyArray array = new MyArray();</span><br><span class="line">//        array.insert(10);</span><br><span class="line">//        array.insert(20);</span><br><span class="line">//        array.insert(30);</span><br><span class="line">//</span><br><span class="line">//        array.display();</span><br><span class="line">//        System.out.println(array.search(20));</span><br><span class="line">//        array.update(1,80);</span><br><span class="line">//        array.display();</span><br><span class="line">//        array.delete(1);</span><br><span class="line">//        array.display();</span><br><span class="line"></span><br><span class="line">        MyOrderArray orderArray = new MyOrderArray();</span><br><span class="line">        orderArray.insert(10);</span><br><span class="line">        orderArray.insert(20);</span><br><span class="line">        orderArray.insert(30);</span><br><span class="line">        orderArray.insert(20);</span><br><span class="line">        orderArray.insert(0);</span><br><span class="line">        orderArray.display();</span><br><span class="line"></span><br><span class="line">        System.out.println(orderArray.binarySearch(30));</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">小程序</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/02/12/数据结构-数组/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-  
-    </div></section>
-  
 
-    
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/page/22/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><a class="page-number" href="/page/22/">22</a><span class="page-number current">23</span>
+    </nav>
+  
 
 
           </div>
@@ -236,10 +269,10 @@ var _hmt = _hmt || [];
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: false,
+		isHome: true,
 		isPost: false,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
