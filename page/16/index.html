@@ -157,42 +157,87 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-Google和Oracle的爱恨情仇" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-用hexo在github上构建博客系统" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/05/Google和Oracle的爱恨情仇/">Google和Oracle的爱恨情仇</a>
+      <a class="article-title" href="/2017/03/21/用hexo在github上构建博客系统/">用hexo在github上构建博客系统</a>
     </h1>
   
 
 
 
         
-        <a href="/2017/03/05/Google和Oracle的爱恨情仇/" class="archive-article-date">
-  	<time datetime="2017-03-05T09:18:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-05</time>
+        <a href="/2017/03/21/用hexo在github上构建博客系统/" class="archive-article-date">
+  	<time datetime="2017-03-21T10:44:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-21</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Google和Oracle的官司一直以来是Android开发程序员津津乐道的。那么就来简单叙述一下，这场官司产生的原因。</p>
-<p>Java不仅仅是一门编程语言，更是一个平台，当年，Java在Sun手中的时候，Sun就推出了J2ME环境，试图来统一手机市场，以自己的Java虚拟机作为一个通用的移动开发平台，但是没有成功。但这不影响Java的影响力，Java的影响力仍然很大，Sun的Java虚拟机仍在许多著名的手机制造商的手机上使用，比如：诺基亚的Symbian系统，RIM的Blackberry系统都采用了Java虚拟机作为程序的运行环境，不过在Android和iOS的兴起中Java虚拟机在手机上的使用已经变得越来越少了。</p>
-<p>Java是门编程语言，我们大家都可以进行使用（开发软件级别），当然Oracle是很希望广大的程序使用Java开进行开发的，但是Oracle毕竟是商业公司，商业公司更关心的是自己的利益，那么利益如何产生和保证呢？那就需要保持一个统一的平台，并且使这个平台在自己的控制下，Java的运行环境所必须的就是Oracle的Java虚拟机，如果软件的厂商想要在自己的手机上面使用Java虚拟机必须要经过Oracle的授权，这就会有利益产生了。（语言本身是不需要收费的，但是整个Java的环境需要授权比如：Java虚拟机，当然对于我们普通开发者来说在自己电脑上开发Java软件是不需要的，但是到了厂商级别就需要了）。</p>
-<p>Oracle目前是Java的所有者，拥有在语言和平台上的专利，Android的发展其实是促使了更多的人来使用Java语言，换句话说是促进了Java的发展，但是Google的Android系统有自己的虚拟机，没有使用Java平台的虚拟机，这样的话Java使用的再多对Oracle也没有任何利益产生了，所以Oracle要起诉Google了。</p>
-<p>对于Java的所有者来说Oracle来说，拥有Java的运行的平台才能保证自己的利益，而不是仅仅使用Java语言，他不希望别人去开发自己的运行平台，而Google恰恰是违反了这一点，Google的Dalvik虚拟机采用了大量Apache下的开源Java运行平台Harmony。Android的Dalvik虚拟机运行的不仅仅是Java程序，可以说Dalvik完全可以运行其他的语言开发的程序，但是Google为了吸引Java程序员，运行程序员使用Android的SDK将Java代码转换成Dalvik可以运行的代码，它是如何实现的呢？Google公司在开发Android的时候，雇佣了Sun的一些程序员，利用Harmony中的开源Java库开实现Java程序的转换，避开了授权费用，这样就意味着开发者可以使用Java语言来为非Java平台开发程序，Android的火爆不能给Oracle公司带来任何的商业利用，而且还造成了平台的分裂。</p>
-<p>自从Oracle掌管Java之后，Apache的Java开源项目Harmony也被Oracle拒之门外，（Harmony 是Apache软件基金会主导的开放源代码项目，是自由Java实现计划的一部分，基于Java SE5与6，目标是以开放源代码方式，实现出Java SDK。J2SE 5.0完整性99%,J2SE6.0完成 97%。Android操作系统历来是Harmony的用户，在Android Nougat后依赖OpenJDK库，将专利的JDK替换为开源方案的OpenJDK，以彻底解决ava的专利问题），Oracle拒绝给Harmony提供兼容性测试，这样就是意味着Harmony与Java平台的分裂，这也表明，Java的版本在Oracle这里，用Java语言就要受限于Oracle。<br>当开源的Java运行平台Harmony在Apache协议下出现的时候，Sun公司就不高兴，当时没有出现大的冲突可能是因为这个平台还不成气候吧。</p>
-<p>2018年3月，法院认定Android侵权，判Oracle胜诉。Google对此感到失望，并表示会进一步采取措施，寻求其他解决方案。</p>
-<p>法院认定Google 在为其 Android 系统建构定制版的 Java 平台时侵犯了Oracle的版权，抄袭了近 11,000 多行代码，但 Google 仍可以向最高法院上诉。这个裁决将不只影响Oracle与 Google，可能会对相关软件业者及开发商造成冲击。</p>
-<p>Android 是目前市占率最高的智能设备操作系统，有超过 20 亿的设备使用，尽管并不会因为此判决而被禁止，但相关业者恐怕仍须修改相关程序，将造成业界相当大的损失。Google 其实在 2016 年发布 Nougat 版本时就已将程序码改用自  Java 的开源版本，但仍然可能会造成不兼容的问题，将迫使许多应用程序进行改写。</p>
-<p>主要问题在于 Google 使用了 Java API（应用程序接口）。原本此举是为了让程序设计员能在不用完全重新学习语言，也能够继续开发 Android 应用程序，且许多软件商也采取类似措施。如果最新的判决未被推翻，都可能将面临一系列版权诉讼。Google 声称Oracle的版权范围，并未涵盖 API 的部分，而如今法院并不支持这样的说法。</p>
-<p>法院表示，尽管 Android 是开源软件，但其也为 Google 带来数百亿美元的可观收入，所以并不能为 Google 免费使用 Java API packages 带来正当性。Google 发言人指出，他们对法院推翻之前的立场相当失望，Java 应是一个开放的免费平台。</p>
-<p>而Oracle强调，Java 可以免费提供给程序开发者，但不能被应用到竞争平台及镶嵌到电子设备产品上销售。Oracle的上诉就是因为，Google 并不想为此付费。尽管目前 Google 已经从 Android 移除了 Java API，但这项判决不仅可能令 Google 遭受超过 88 亿美元的罚金，也将会建立软件合理使用的判例。</p>
-<p>这个案件中巨大的赔偿金数额所产生的影响远远小于案件本身的审判结果作为“审判先例”给整个科技行业带来的影响。</p>
-<p>Oracle在这个案件中最终胜诉，首先意味着Google需支付大量的赔款，这对财大气粗的Google来说也许并不能算是切肤之痛，但更重要的是这将会在行业中树立一个新的“先例”：某些类型的代码，特别是API，是受到版权保护的。这一先例的影响力恐怕将前无古人，而我们也可以预见短时间内将会出现众多类似的侵权案件。</p>
+        <p>Hexo 是一个简单地、轻量地、基于Node的一个静态博客框架。通过Hexo我们可以快速创建自己的博客，仅需要几条命令就可以完成。发布时，Hexo可以部署在自己的Node服务器上面，也可以部署github上面。对于个人用户来说，部署在github上好处颇多，不仅可以省去服务器的成本，还可以减少各种系统运维的麻烦事(系统管理、备份、网络)。所以，基于github的个人站点，正在开始流行起来….</p>
+<p>Hexo的官方网站：<a href="http://hexo.io/" target="_blank" rel="noopener">http://hexo.io/</a> ，也是基于Github构建的网站。</p>
+<h2 id="1-Hexo安装"><a href="#1-Hexo安装" class="headerlink" title="1.Hexo安装"></a>1.Hexo安装</h2><p>系统环境</p>
+<ul>
+<li>win7 64bit</li>
+<li>node v4.4.3</li>
+<li>npm 2.15.1</li>
+</ul>
+<p>Hexo安装，要用全局安装，加-g参数<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D:\&gt; npm install -g hexo</span><br></pre></td></tr></table></figure></p>
+<p>查看hexo的版本<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D:\&gt;hexo version</span><br></pre></td></tr></table></figure></p>
+<p>安装好后，使用Hexo创建项目<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D:\workspace\javascript&gt; hexo init nodejs-hexo</span><br></pre></td></tr></table></figure></p>
+<p>创建helloword.md文件，之后便以markdown语法写文章<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D:\workspace\javascript\nodejs-hexo&gt;hexo new helloword</span><br></pre></td></tr></table></figure></p>
+<p>进入目录，并启动Hexo服务器。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D:\workspace\javascript\nodejs-hexo&gt;hexo server</span><br></pre></td></tr></table></figure></p>
+<p>这时端口4000被打开了，我们可以通过浏览器打开地址，<a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a></p>
+<h2 id="2-Hexo的使用"><a href="#2-Hexo的使用" class="headerlink" title="2.Hexo的使用"></a>2.Hexo的使用</h2><p><strong>目录和文件</strong></p>
+<ul>
+<li>scaffolds 脚手架，也就是一个工具模板</li>
+<li>scripts 写文件的js，扩展hexo的功能</li>
+<li>source 存放博客正文内容</li>
+<li>source/_posts 文件箱</li>
+<li>themes 存放皮肤的目录</li>
+<li>themes/landscape 默认的皮肤</li>
+<li>_config.yml 全局的配置文件</li>
+<li>db.json 静态常量</li>
+</ul>
+<p>_posts目录：Hexo是一个静态博客框架，因此没有数据库。文章内容都是以文本文件方式进行存储的，直接存储在_posts的目录。Hexo天生集成了markdown，我们可以直接使用markdown语法格式写博客，例如:hello-world.md。新增加一篇文章，就在_posts目录，新建一个xxx.md的文件。</p>
+<p>themes目录：是存放皮肤的，包括一套Javascript+CSS样式和基于EJS的模板设置。通过在themes目录下，新建一个子目录，就可以创建一套新的皮肤，当然我们也可以直接在landscape上面修改。</p>
+<p>_config.yml：是全局的配置文件：很多的网站配置都在这个文件中定义。</p>
+<h2 id="3-发布项目到github"><a href="#3-发布项目到github" class="headerlink" title="3.发布项目到github"></a>3.发布项目到github</h2><p><strong>注册github帐号 <a href="https://github.com/" target="_blank" rel="noopener">https://github.com/</a> </strong></p>
+<p><strong>创建repository：WE666.github.io</strong></p>
+<p><strong>配置GitHub账户信息</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --<span class="keyword">global</span> user.name <span class="string">"yourname"</span></span><br><span class="line">git config --<span class="keyword">global</span> user.email <span class="string">"youremail@example.com"</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>生成SSH密钥</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C <span class="string">"youremail@example.com"</span> </span><br><span class="line">Generating public/private rsa key pair.</span><br><span class="line">Enter file <span class="keyword">in</span> which to save the key (/Users/your_user_directory/.ssh/id_rsa):&lt;回车就好&gt;</span><br><span class="line">Enter passphrase (empty <span class="keyword">for</span> no passphrase):&lt;输入加密串&gt;</span><br><span class="line">Enter same passphrase again:&lt;再次输入加密串&gt;</span><br></pre></td></tr></table></figure></p>
+<p><strong>添加SSH Key到GitHub：</strong></p>
+<p>在本机设置SSH Key之后，需要添加到GitHub上，以完成SSH链接的设置。</p>
+<ul>
+<li>打开id_rsa.pub文件（ 参考地址 C:\Documents and Settings\Administrator.ssh\id_rsa.pub），复制里面的内容</li>
+<li>登陆 GitHub 系统。点击右上角的 Account Settings—&gt;SSH Public keys —&gt; add another public keys</li>
+<li>把本地生成的密钥复制到里面（ key 文本框中），最后点击Add SSH key，这样就把公钥导入到GitHub上去啦</li>
+</ul>
+<p>验证是否导入成功：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cd ~/.ssh                 //如果提示：No such file <span class="keyword">or</span> directory 说明你是第一次使用 git</span><br><span class="line">$ ssh -T git@github.com     //如果提示输入密码则导入成功</span><br></pre></td></tr></table></figure></p>
+<p><strong>静态化处理</strong></p>
+<p>写完了文章，我们就可以发布了。要说明的一点是hexo的静态博客框架，静态博客是只包含html, javascript, css文件的网站，没有动态的脚本。虽然我们是用Node进行的开发，但博客的发布后就与Node无关了。在发布之前，我们要通过一条命令，把所有的文章都做静态化处理，就是生成对应的html, javascript, css，使得所有的文章都是由静态文件组成的。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D:\workspace\javascript\nodejs-hexo&gt;hexo generate</span><br></pre></td></tr></table></figure></p>
+<p>在本地目录下，会生成一个public的目录，里面包括了所有静态化的文件</p>
+<p><strong>发布到github</strong></p>
+<p>编辑全局配置文件：_config.yml，找到deploy的部分，设置github的项目地址。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: https://github.com/WE666/WE666.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure></p>
+<p>然后，通过命令进行部署（部署过程中会遇到之前设置的账号和密码）<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D:\workspace\javascript\nodejs-hexo&gt;hexo deploy</span><br></pre></td></tr></table></figure></p>
+<p>然后，点击”Settings”，找到GitHub Pages，提示“ Your site is published at <a href="https://we666.github.io/" target="_blank" rel="noopener">https://we666.github.io/</a> ”，打开链接，就是我们刚刚发布的站点。</p>
+<p><strong>hexo现在支持更加简单的命令格式了，比如：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo g == hexo generate</span><br><span class="line">hexo d == hexo deploy</span><br><span class="line">hexo s == hexo server</span><br><span class="line">hexo n == hexo new &quot;HelloWord&quot;</span><br></pre></td></tr></table></figure></p>
+<p><strong>注意：</strong>每次修改本地文件后，需要执行hexo g命令才能保存。每次使用命令时，都要在Hexo目录下。每次上传文件到Github时，就要执行hexo g命令保存之后，再执行hexo d命令。</p>
+<h2 id="4-替换皮肤"><a href="#4-替换皮肤" class="headerlink" title="4.替换皮肤"></a>4.替换皮肤</h2><p>打开hexo的皮肤列表页面，你可以找到很多的皮肤，网页地址：<a href="https://github.com/tommy351/hexo/wiki/Themes" target="_blank" rel="noopener">https://github.com/tommy351/hexo/wiki/Themes</a> </p>
+<p>通过git命令下载皮肤，放到themes目录下<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/litten/hexo-theme-yilia.git themes/hexo-theme-yilia</span><br></pre></td></tr></table></figure></p>
+<p>在_config.yml指定皮肤：找到theme一行，改成theme: hexo-theme-yilia</p>
+<p>本地启动hexo服务器，打开浏览器 <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a><br>然后静态化处理，再发布到github，就完成了站点的改版。</p>
+<h2 id="5-开始写作"><a href="#5-开始写作" class="headerlink" title="5.开始写作"></a>5.开始写作</h2><p>通过下面的命令，就可以创建新文章<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">D:\workspace\javascript\nodejs-hexo&gt;hexo new 新的开始</span><br><span class="line">[info] File created at D:\workspace\javascript\nodejs-hexo\source\_posts\新的开始.md</span><br></pre></td></tr></table></figure></p>
+<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><blockquote><p>Every interaction is both precious and an opportunity to delight.</p>
+<footer><strong>Seth Godin</strong><cite><a href="http://sethgodin.typepad.com/seths_blog/2009/07/welcome-to-island-marketing.html" target="_blank" rel="noopener">Welcome to Island Marketing</a></cite></footer></blockquote>
+<h2 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h2><figure class="highlight plain"><figcaption><span>.compact</span><a href="http://underscorejs.org/#compact" target="_blank" rel="noopener">Underscore.js</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">.compact([0, 1, false, 2, ‘’, 3]);</span><br><span class="line">=&gt; [1, 2, 3]</span><br></pre></td></tr></table></figure>
+<h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% link 我的链接 https://github.com/ 我的github %&#125;</span><br></pre></td></tr></table></figure>
+<a href="https://github.com/" title="我的github" target="_blank" rel="noopener">我的链接</a>
 
       
 
@@ -206,7 +251,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
         		</li>
       		
 		</ul>
@@ -216,7 +261,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/05/Google和Oracle的爱恨情仇/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/03/21/用hexo在github上构建博客系统/">展开全文 >></a>
         </p>
       
 
@@ -249,7 +294,7 @@ var _hmt = _hmt || [];
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/15/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><span class="page-number current">16</span><a class="page-number" href="/page/17/">17</a><a class="page-number" href="/page/18/">18</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><a class="extend next" rel="next" href="/page/17/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/15/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><span class="page-number current">16</span><a class="page-number" href="/page/17/">17</a><a class="page-number" href="/page/18/">18</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><a class="extend next" rel="next" href="/page/17/">Next &raquo;</a>
     </nav>
   
 
@@ -350,10 +395,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">开发工具</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
@@ -366,6 +407,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">开发工具</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
               </li>
              
@@ -374,11 +419,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Spring MVC</a>
+                <a href="javascript:void(0)" class="js-tag color2">spring</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">spring</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -386,7 +431,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+                <a href="javascript:void(0)" class="js-tag color1">Spring MVC</a>
               </li>
             
             <div class="clearfix"></div>

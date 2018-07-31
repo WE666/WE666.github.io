@@ -157,36 +157,45 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-Git的使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Github的使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/26/Git的使用/">Git的使用</a>
+      <a class="article-title" href="/2017/03/27/Github的使用/">GitHub��ʹ��</a>
     </h1>
   
 
 
 
         
-        <a href="/2017/03/26/Git的使用/" class="archive-article-date">
-  	<time datetime="2017-03-26T05:24:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-26</time>
+        <a href="/2017/03/27/Github的使用/" class="archive-article-date">
+  	<time datetime="2017-03-27T07:23:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-27</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Git-全局设置"><a href="#Git-全局设置" class="headerlink" title="Git 全局设置:"></a>Git 全局设置:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;追梦人&quot;</span><br><span class="line">git config --global user.email &quot;m123456@163.com&quot;</span><br></pre></td></tr></table></figure>
-<h3 id="创建-git-仓库"><a href="#创建-git-仓库" class="headerlink" title="创建 git 仓库:"></a>创建 git 仓库:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mkdir hexo</span><br><span class="line">cd hexo</span><br><span class="line">git init</span><br><span class="line">touch README.md</span><br><span class="line">git add README.md</span><br><span class="line">git commit -m &quot;first commit&quot;</span><br><span class="line">git remote add origin https://gitee.com/Ling07/hexo.git</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
-<h3 id="已有项目"><a href="#已有项目" class="headerlink" title="已有项目"></a>已有项目</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd existing_git_repo</span><br><span class="line">git remote add origin https://gitee.com/Ling07/hexo.git</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
-<p><strong>建议所有的git仓库都有一个README, LICENSE, .gitignore文件 </strong></p>
-<p><a href="https://www.oschina.net/question/82993_133520" target="_blank" rel="noopener">如何导入外部Git仓库到中国源代码托管平台</a></p>
-<p><a href="https://my.oschina.net/songxinqiang/blog/192567" target="_blank" rel="noopener">eclipse中egit插件使用</a></p>
-<p><a href="https://my.oschina.net/longxuu/blog/141699" target="_blank" rel="noopener">在win7系统下使用TortoiseGit简单操作</a></p>
-<p><a href="https://gitee.com/oschina/git-osc/wikis/%E5%B8%AE%E5%8A%A9" target="_blank" rel="noopener">WIKI帮助</a></p>
+        <h2 id="�ϴ������l���GitHub"><a href="#�ϴ������l���GitHub" class="headerlink" title="�ϴ������ļ���GitHub"></a>�ϴ������ļ���GitHub</h2><ul>
+<li>1.����ļ����Ҽ�Git bash here</li>
+<li>2.���� <strong>git init</strong>���ڵ�ǰ��Ŀ��Ŀ¼�����ɱ��ص�git�����ᷢ���ڵ�ǰĿ¼�¶���һ��.git�ļ��У�</li>
+<li>3.���� <strong>git add .</strong> ����ǽ���Ŀ�����е��ļ���ӵ��ֿ��е���˼�����ֻ���ĳ���ļ�ֻ���<strong> . </strong>��������ض����ļ������ɡ�</li>
+<li>4.���� <strong>git commit -m ‘first commit’</strong> ��ʾ�������ύ��ע�ͣ�˫������������ݿ��Ը��ݸ��˵���Ҫ�ġ�</li>
+<li>5.���� <strong>git remote add origin git@github.com:WE666/WE666.github.io.git</strong> �����صĲֿ������github�ϣ�������ִ���fatal:remote origin already exists  �Ǿ������� git remote rm origin��ִ����һ������</li>
+<li>6.������� <strong>git push -u origin master</strong> �Ѵ����ϴ���github�ֿ⡣</li>
+</ul>
+<p>ִ����֮������޴�����ϴ��ɹ��ˣ���Ҫ��ʾ���������master��GithubĬ�ϵķ�֧������㱾�صĵ�ǰ��֧����master������git checkout master�����л���master��֧����������ñ��ص�ǰ��֧�ϴ����룬������һ�����������master�л�����ĵ�ǰ��֧�����ɡ�</p>
+<p><strong>ע�⣺</strong>����ڴ���Զ�ֿ̲��ʱ�������ѡ��Initialize this repository with a README �����ֿ��ʱ���Զ����㴴��һ��README�ļ�����ô�㽫���زֿ��������͵�Զ�ֿ̲��ʱ��ͻᱨ�������������´������Ǹ��ֿ������README�ļ����ڱ��زֿ�Ŀ¼�У���ʱ���ǿ���ͨ�����������Ƚ����ݺϲ����£�git pull –rebase origin master</p>
+<h2 id="���Բ���Ҫ���l�"><a href="#���Բ���Ҫ���l�" class="headerlink" title="���Բ���Ҫ���ļ�"></a>���Բ���Ҫ���ļ�</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#���������ļ�</span><br><span class="line">*.settings</span><br><span class="line">*.project</span><br><span class="line">*.classpath</span><br><span class="line"></span><br><span class="line">#�����ļ���target</span><br><span class="line">target/</span><br></pre></td></tr></table></figure>
+<h2 id="�޸�git�u���������"><a href="#�޸�git�u���������" class="headerlink" title="�޸�git�û���������"></a>�޸�git�û���������</h2><p>��֮ǰ��һ�����Ƶ��˺ţ������������ˣ�����������������һ�������˺ţ������Ҫ�޸�ȫ���û��������䡣</p>
+<p>���Ƚ���git bash</p>
+<p>���룺<strong> git config –list </strong>  ���Բ鿴user.name ��user.email  �ֱ���ʲô</p>
+<p>�����û�г�ʼ��������ôֱ�ӣ�<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --<span class="keyword">global</span> user.name <span class="string">"��������û���"</span></span><br><span class="line">git config --<span class="keyword">global</span> user.email <span class="string">"�����������"</span></span><br></pre></td></tr></table></figure></p>
+<p>����Ѿ���ʼ�����ˣ�������Ҫ�޸�������û�����������<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --<span class="keyword">global</span> --replace-all user.email <span class="string">"�����������"</span> </span><br><span class="line">git config --<span class="keyword">global</span> --replace-all user.name <span class="string">"��������û���"</span></span><br></pre></td></tr></table></figure></p>
+<p>Ȼ���ٲ鿴��<strong> git config –list </strong> �����޸ĳɹ�</p>
 
       
 
@@ -210,7 +219,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/26/Git的使用/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/03/27/Github的使用/">展开全文 >></a>
         </p>
       
 
@@ -243,7 +252,7 @@ var _hmt = _hmt || [];
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/10/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><a class="extend next" rel="next" href="/page/12/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/10/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><a class="extend next" rel="next" href="/page/12/">Next &raquo;</a>
     </nav>
   
 
@@ -344,10 +353,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">开发工具</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
@@ -360,6 +365,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">开发工具</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
               </li>
              
@@ -368,11 +377,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Spring MVC</a>
+                <a href="javascript:void(0)" class="js-tag color2">spring</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">spring</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -380,7 +389,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+                <a href="javascript:void(0)" class="js-tag color1">Spring MVC</a>
               </li>
             
             <div class="clearfix"></div>
