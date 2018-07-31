@@ -173,10 +173,6 @@ var _hmt = _hmt || [];
 
 
 
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> Read:<span id="/2017/02/13/数据结构-排序/" class="pageViews">0</span>
-  </a>
-
         
         <a href="/2017/02/13/数据结构-排序/" class="archive-article-date">
   	<time datetime="2017-02-13T05:24:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-13</time>
@@ -360,25 +356,6 @@ var _hmt = _hmt || [];
 
 
 
-<!-- ������City�氲װ���� -->
-<div id="lv-container" data-id="city" data-uid="MTAyMC8zMjYzMC85MTkx">
-	<script type="text/javascript">
-   (function(d, s) {
-       var j, e = d.getElementsByTagName(s)[0];
-
-       if (typeof LivereTower === 'function') { return; }
-
-       j = d.createElement(s);
-       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-       j.async = true;
-
-       e.parentNode.insertBefore(j, e);
-   })(document, 'script');
-	</script>
-<noscript> Ϊ����ʹ�����������۹����뼤��JavaScript</noscript>
-</div>
-<!-- City�氲װ��������� -->
-
   
   
   
@@ -422,57 +399,6 @@ var _hmt = _hmt || [];
 		showTags: false
 	}
 </script>
-
-<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-
-<script src="//cdn1.lncld.net/static/js/2.5.0/av-min.js"></script>
-<script type="text/javascript"> 
-if(true){
-    var leancloud_app_id  = 'SeGWgp8MAYJ82YzmOEaMvR83-gzGzoHsz';
-    var leancloud_app_key = '2fuc5Yo2uFuASUqSnizKGTMJ';
-    AV.init({
-        appId: leancloud_app_id,
-        appKey: leancloud_app_key
-    });
-    var pageViewsLength = $(".pageViews").length;
-    var isIndex = $(".pageViews").length > 1 ?true:false;
-    function showTime() {
-        var Counter = AV.Object.extend("Counter");
-        if(isIndex){
-            $(".pageViews").each(function(){
-                showPageViewsNum($(this),Counter);
-                addPageViewsNum($(this));
-            });
-        }else{
-            showPageViewsNum($(".pageViews"),Counter);
-            addPageViewsNum($(".pageViews"));
-        }
-    }
-    
-    function showPageViewsNum(ele,Counter){
-        var query = new AV.Query("Counter");
-        var url = ele.attr('id').trim();
-            query.equalTo("words", url);
-            query.count().then(function (number) {
-                $(document.getElementById(url)).text(number?  number : '0');
-            }, function (error) {
-                 $(document.getElementById(url)).text('0');
-            });
-    }
-    
-    function addPageViewsNum(ele){
-        var url = ele.attr('id').trim();
-        var Counter = AV.Object.extend("Counter");
-        var query = new Counter;
-        query.save({
-            words: url
-        }).then(function (object) {});
-    }
-    if(pageViewsLength){ 
-        showTime();
-    }
-}
-</script> 
 
 
 
@@ -538,19 +464,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">开发工具</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">开发工具</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -566,15 +492,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">spring</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">小程序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
             
             <div class="clearfix"></div>
