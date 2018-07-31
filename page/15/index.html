@@ -157,33 +157,87 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-yilia主题添加livere来必力评论和相册功能" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-用hexo在github上构建博客系统" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/23/yilia主题添加livere来必力评论和相册功能/">yilia主题添加livere来必力评论和相册功能</a>
+      <a class="article-title" href="/2017/03/21/用hexo在github上构建博客系统/">用hexo在github上构建博客系统</a>
     </h1>
   
 
 
 
         
-        <a href="/2017/03/23/yilia主题添加livere来必力评论和相册功能/" class="archive-article-date">
-  	<time datetime="2017-03-23T05:44:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-23</time>
+        <a href="/2017/03/21/用hexo在github上构建博客系统/" class="archive-article-date">
+  	<time datetime="2017-03-21T10:44:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-21</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>第三方评论有</strong>：畅言、来比力、网易云跟帖、多说deng。多说是最多用户使用的评论，但遗憾2017年6月将暂定服务；网易云跟帖也于8月1号停止服务；畅言必须进行域名备案；来必力是韩国人做的！当时萨德事件，我就没有选择，现在走头无路，发现这个做的也挺好的。</p>
-<h2 id="注册"><a href="#注册" class="headerlink" title="注册"></a>注册</h2><p>LiveRe 有两个版本：<br>City 版：是一款适合所有人使用的免费版本；<br>Premium 版：是一款能够帮助企业实现自动化管理的多功能收费版本<br>获取livere安装代码：<a href="https://livere.com/" title="注册" target="_blank" rel="noopener">点我注册</a></p>
-<h2 id="添加livere插件"><a href="#添加livere插件" class="headerlink" title="添加livere插件"></a>添加livere插件</h2><p>首先在 _config.yml 文件中添加如下配置：livere: true<br>然后\layout_partial\post目录下添加livere.ejs，把livere安装代码复制进去，文件内容如下，其中data-uid就是你自己的data-uid<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 来必力City版安装代码 --&gt;</span><br><span class="line">&lt;div id=&quot;lv-container&quot; data-id=&quot;city&quot; data-uid=&quot;your data-uid&quot;&gt;</span><br><span class="line">	&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">   (function(d, s) &#123;</span><br><span class="line">       var j, e = d.getElementsByTagName(s)[0];</span><br><span class="line"></span><br><span class="line">       if (typeof LivereTower === &apos;function&apos;) &#123; return; &#125;</span><br><span class="line"></span><br><span class="line">       j = d.createElement(s);</span><br><span class="line">       j.src = &apos;https://cdn-city.livere.com/js/embed.dist.js&apos;;</span><br><span class="line">       j.async = true;</span><br><span class="line"></span><br><span class="line">       e.parentNode.insertBefore(j, e);</span><br><span class="line">   &#125;)(document, &apos;script&apos;);</span><br><span class="line">	&lt;/script&gt;</span><br><span class="line">&lt;noscript&gt; 为正常使用来必力评论功能请激活JavaScript&lt;/noscript&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;!-- City版安装代码已完成 --&gt;</span><br></pre></td></tr></table></figure></p>
-<p>最后在layout_partial\article.ejs中&lt;% if (!index &amp;&amp; post.comments){ %&gt;后面添加如下代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if (theme.livere)&#123; %&gt;</span><br><span class="line">&lt;%- partial(&apos;post/livere&apos;, &#123;</span><br><span class="line">    key: post.slug,</span><br><span class="line">    title: post.title,</span><br><span class="line">    url: config.url+url_for(post.path)</span><br><span class="line">  &#125;) %&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure><br>至此，为yilia主题添加livere评论插件完成。如果你想使用畅言评论系统，可以进入<a href="https://changyan.kuaizhan.com/" title="畅言官网" target="_blank" rel="noopener">畅言官网</a>, 点击右上角 “免费注册”，并填写注册信息。（注意域名需要备案信息）</p>
-<h2 id="实现相册功能"><a href="#实现相册功能" class="headerlink" title="实现相册功能"></a>实现相册功能</h2><p>1、github操作<br>建立一个用于存储相册的仓库，将本地仓库提交到github<br>2、博客操作<br>•在博客的source文件夹下建立一个photos文件夹，将样式文件放到photos文件夹下<br>•修改ins.js文件，主要是里面的render函数 ，其中的url对应到你的github放图片的地址<br>3、图片处理<br>•执行python脚本，生成json文件。需要安装PIL，Windows平台去<a href="http://pythonware.com/products/pil/" title="PIL官方网站" target="_blank" rel="noopener">PIL官方网站</a>下载exe安装包比较简单（官网只有32位的PIL，刚好我的python也是32位的）<br>•需要注意的是tool.py代码中../nodeji-hexo/source/photos/data.json是对应到我的博客的路径，这里根据需要改成自己博客的路径<br>4、github提交<br>•处理完成之后需要将处理后的图片提交到github上<br>•这里同样使用脚本的方式，需要将git命令行配置到环境变量中</p>
+        <p>Hexo 是一个简单地、轻量地、基于Node的一个静态博客框架。通过Hexo我们可以快速创建自己的博客，仅需要几条命令就可以完成。发布时，Hexo可以部署在自己的Node服务器上面，也可以部署github上面。对于个人用户来说，部署在github上好处颇多，不仅可以省去服务器的成本，还可以减少各种系统运维的麻烦事(系统管理、备份、网络)。所以，基于github的个人站点，正在开始流行起来….</p>
+<p>Hexo的官方网站：<a href="http://hexo.io/" target="_blank" rel="noopener">http://hexo.io/</a> ，也是基于Github构建的网站。</p>
+<h2 id="1-Hexo安装"><a href="#1-Hexo安装" class="headerlink" title="1.Hexo安装"></a>1.Hexo安装</h2><p>系统环境</p>
+<ul>
+<li>win7 64bit</li>
+<li>node v4.4.3</li>
+<li>npm 2.15.1</li>
+</ul>
+<p>Hexo安装，要用全局安装，加-g参数<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D:\&gt; npm install -g hexo</span><br></pre></td></tr></table></figure></p>
+<p>查看hexo的版本<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D:\&gt;hexo version</span><br></pre></td></tr></table></figure></p>
+<p>安装好后，使用Hexo创建项目<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D:\workspace\javascript&gt; hexo init nodejs-hexo</span><br></pre></td></tr></table></figure></p>
+<p>创建helloword.md文件，之后便以markdown语法写文章<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D:\workspace\javascript\nodejs-hexo&gt;hexo new helloword</span><br></pre></td></tr></table></figure></p>
+<p>进入目录，并启动Hexo服务器。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D:\workspace\javascript\nodejs-hexo&gt;hexo server</span><br></pre></td></tr></table></figure></p>
+<p>这时端口4000被打开了，我们可以通过浏览器打开地址，<a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a></p>
+<h2 id="2-Hexo的使用"><a href="#2-Hexo的使用" class="headerlink" title="2.Hexo的使用"></a>2.Hexo的使用</h2><p><strong>目录和文件</strong></p>
+<ul>
+<li>scaffolds 脚手架，也就是一个工具模板</li>
+<li>scripts 写文件的js，扩展hexo的功能</li>
+<li>source 存放博客正文内容</li>
+<li>source/_posts 文件箱</li>
+<li>themes 存放皮肤的目录</li>
+<li>themes/landscape 默认的皮肤</li>
+<li>_config.yml 全局的配置文件</li>
+<li>db.json 静态常量</li>
+</ul>
+<p>_posts目录：Hexo是一个静态博客框架，因此没有数据库。文章内容都是以文本文件方式进行存储的，直接存储在_posts的目录。Hexo天生集成了markdown，我们可以直接使用markdown语法格式写博客，例如:hello-world.md。新增加一篇文章，就在_posts目录，新建一个xxx.md的文件。</p>
+<p>themes目录：是存放皮肤的，包括一套Javascript+CSS样式和基于EJS的模板设置。通过在themes目录下，新建一个子目录，就可以创建一套新的皮肤，当然我们也可以直接在landscape上面修改。</p>
+<p>_config.yml：是全局的配置文件：很多的网站配置都在这个文件中定义。</p>
+<h2 id="3-发布项目到github"><a href="#3-发布项目到github" class="headerlink" title="3.发布项目到github"></a>3.发布项目到github</h2><p><strong>注册github帐号 <a href="https://github.com/" target="_blank" rel="noopener">https://github.com/</a> </strong></p>
+<p><strong>创建repository：WE666.github.io</strong></p>
+<p><strong>配置GitHub账户信息</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --<span class="keyword">global</span> user.name <span class="string">"yourname"</span></span><br><span class="line">git config --<span class="keyword">global</span> user.email <span class="string">"youremail@example.com"</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>生成SSH密钥</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C <span class="string">"youremail@example.com"</span> </span><br><span class="line">Generating public/private rsa key pair.</span><br><span class="line">Enter file <span class="keyword">in</span> which to save the key (/Users/your_user_directory/.ssh/id_rsa):&lt;回车就好&gt;</span><br><span class="line">Enter passphrase (empty <span class="keyword">for</span> no passphrase):&lt;输入加密串&gt;</span><br><span class="line">Enter same passphrase again:&lt;再次输入加密串&gt;</span><br></pre></td></tr></table></figure></p>
+<p><strong>添加SSH Key到GitHub：</strong></p>
+<p>在本机设置SSH Key之后，需要添加到GitHub上，以完成SSH链接的设置。</p>
+<ul>
+<li>打开id_rsa.pub文件（ 参考地址 C:\Documents and Settings\Administrator.ssh\id_rsa.pub），复制里面的内容</li>
+<li>登陆 GitHub 系统。点击右上角的 Account Settings—&gt;SSH Public keys —&gt; add another public keys</li>
+<li>把本地生成的密钥复制到里面（ key 文本框中），最后点击Add SSH key，这样就把公钥导入到GitHub上去啦</li>
+</ul>
+<p>验证是否导入成功：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cd ~/.ssh                 //如果提示：No such file <span class="keyword">or</span> directory 说明你是第一次使用 git</span><br><span class="line">$ ssh -T git@github.com     //如果提示输入密码则导入成功</span><br></pre></td></tr></table></figure></p>
+<p><strong>静态化处理</strong></p>
+<p>写完了文章，我们就可以发布了。要说明的一点是hexo的静态博客框架，静态博客是只包含html, javascript, css文件的网站，没有动态的脚本。虽然我们是用Node进行的开发，但博客的发布后就与Node无关了。在发布之前，我们要通过一条命令，把所有的文章都做静态化处理，就是生成对应的html, javascript, css，使得所有的文章都是由静态文件组成的。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D:\workspace\javascript\nodejs-hexo&gt;hexo generate</span><br></pre></td></tr></table></figure></p>
+<p>在本地目录下，会生成一个public的目录，里面包括了所有静态化的文件</p>
+<p><strong>发布到github</strong></p>
+<p>编辑全局配置文件：_config.yml，找到deploy的部分，设置github的项目地址。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: https://github.com/WE666/WE666.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure></p>
+<p>然后，通过命令进行部署（部署过程中会遇到之前设置的账号和密码）<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D:\workspace\javascript\nodejs-hexo&gt;hexo deploy</span><br></pre></td></tr></table></figure></p>
+<p>然后，点击”Settings”，找到GitHub Pages，提示“ Your site is published at <a href="https://we666.github.io/" target="_blank" rel="noopener">https://we666.github.io/</a> ”，打开链接，就是我们刚刚发布的站点。</p>
+<p><strong>hexo现在支持更加简单的命令格式了，比如：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo g == hexo generate</span><br><span class="line">hexo d == hexo deploy</span><br><span class="line">hexo s == hexo server</span><br><span class="line">hexo n == hexo new &quot;HelloWord&quot;</span><br></pre></td></tr></table></figure></p>
+<p><strong>注意：</strong>每次修改本地文件后，需要执行hexo g命令才能保存。每次使用命令时，都要在Hexo目录下。每次上传文件到Github时，就要执行hexo g命令保存之后，再执行hexo d命令。</p>
+<h2 id="4-替换皮肤"><a href="#4-替换皮肤" class="headerlink" title="4.替换皮肤"></a>4.替换皮肤</h2><p>打开hexo的皮肤列表页面，你可以找到很多的皮肤，网页地址：<a href="https://github.com/tommy351/hexo/wiki/Themes" target="_blank" rel="noopener">https://github.com/tommy351/hexo/wiki/Themes</a> </p>
+<p>通过git命令下载皮肤，放到themes目录下<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/litten/hexo-theme-yilia.git themes/hexo-theme-yilia</span><br></pre></td></tr></table></figure></p>
+<p>在_config.yml指定皮肤：找到theme一行，改成theme: hexo-theme-yilia</p>
+<p>本地启动hexo服务器，打开浏览器 <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a><br>然后静态化处理，再发布到github，就完成了站点的改版。</p>
+<h2 id="5-开始写作"><a href="#5-开始写作" class="headerlink" title="5.开始写作"></a>5.开始写作</h2><p>通过下面的命令，就可以创建新文章<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">D:\workspace\javascript\nodejs-hexo&gt;hexo new 新的开始</span><br><span class="line">[info] File created at D:\workspace\javascript\nodejs-hexo\source\_posts\新的开始.md</span><br></pre></td></tr></table></figure></p>
+<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><blockquote><p>Every interaction is both precious and an opportunity to delight.</p>
+<footer><strong>Seth Godin</strong><cite><a href="http://sethgodin.typepad.com/seths_blog/2009/07/welcome-to-island-marketing.html" target="_blank" rel="noopener">Welcome to Island Marketing</a></cite></footer></blockquote>
+<h2 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h2><figure class="highlight plain"><figcaption><span>.compact</span><a href="http://underscorejs.org/#compact" target="_blank" rel="noopener">Underscore.js</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">.compact([0, 1, false, 2, ‘’, 3]);</span><br><span class="line">=&gt; [1, 2, 3]</span><br></pre></td></tr></table></figure>
+<h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% link 我的链接 https://github.com/ 我的github %&#125;</span><br></pre></td></tr></table></figure>
+<a href="https://github.com/" title="我的github" target="_blank" rel="noopener">我的链接</a>
 
       
 
@@ -207,7 +261,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/23/yilia主题添加livere来必力评论和相册功能/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/03/21/用hexo在github上构建博客系统/">展开全文 >></a>
         </p>
       
 
@@ -240,7 +294,7 @@ var _hmt = _hmt || [];
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/14/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><span class="page-number current">15</span><a class="page-number" href="/page/16/">16</a><a class="page-number" href="/page/17/">17</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><a class="extend next" rel="next" href="/page/16/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/14/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><span class="page-number current">15</span><a class="page-number" href="/page/16/">16</a><a class="page-number" href="/page/17/">17</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><a class="extend next" rel="next" href="/page/16/">Next &raquo;</a>
     </nav>
   
 
@@ -341,11 +395,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -357,11 +415,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+                <a href="javascript:void(0)" class="js-tag color2">Spring Boot</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Spring Boot</a>
+                <a href="javascript:void(0)" class="js-tag color1">Spring MVC</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -369,15 +427,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">小程序</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Spring MVC</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
             
             <div class="clearfix"></div>
