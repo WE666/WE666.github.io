@@ -157,33 +157,35 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-yilia主题添加livere来必力评论和相册功能" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Hexo文章简单加密访问" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/23/yilia主题添加livere来必力评论和相册功能/">yilia主题添加livere来必力评论和相册功能</a>
+      <a class="article-title" href="/2017/03/25/Hexo文章简单加密访问/">Hexo文章简单加密访问</a>
     </h1>
   
 
 
 
         
-        <a href="/2017/03/23/yilia主题添加livere来必力评论和相册功能/" class="archive-article-date">
-  	<time datetime="2017-03-23T05:44:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-23</time>
+        <a href="/2017/03/25/Hexo文章简单加密访问/" class="archive-article-date">
+  	<time datetime="2017-03-25T15:00:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-25</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>第三方评论有</strong>：畅言、来比力、网易云跟帖、多说deng。多说是最多用户使用的评论，但遗憾2017年6月将暂定服务；网易云跟帖也于8月1号停止服务；畅言必须进行域名备案；来必力是韩国人做的！当时萨德事件，我就没有选择，现在走头无路，发现这个做的也挺好的。</p>
-<h2 id="注册"><a href="#注册" class="headerlink" title="注册"></a>注册</h2><p>LiveRe 有两个版本：<br>City 版：是一款适合所有人使用的免费版本；<br>Premium 版：是一款能够帮助企业实现自动化管理的多功能收费版本<br>获取livere安装代码：<a href="https://livere.com/" title="注册" target="_blank" rel="noopener">点我注册</a></p>
-<h2 id="添加livere插件"><a href="#添加livere插件" class="headerlink" title="添加livere插件"></a>添加livere插件</h2><p>首先在 _config.yml 文件中添加如下配置：livere: true<br>然后\layout_partial\post目录下添加livere.ejs，把livere安装代码复制进去，文件内容如下，其中data-uid就是你自己的data-uid<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 来必力City版安装代码 --&gt;</span><br><span class="line">&lt;div id=&quot;lv-container&quot; data-id=&quot;city&quot; data-uid=&quot;your data-uid&quot;&gt;</span><br><span class="line">	&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">   (function(d, s) &#123;</span><br><span class="line">       var j, e = d.getElementsByTagName(s)[0];</span><br><span class="line"></span><br><span class="line">       if (typeof LivereTower === &apos;function&apos;) &#123; return; &#125;</span><br><span class="line"></span><br><span class="line">       j = d.createElement(s);</span><br><span class="line">       j.src = &apos;https://cdn-city.livere.com/js/embed.dist.js&apos;;</span><br><span class="line">       j.async = true;</span><br><span class="line"></span><br><span class="line">       e.parentNode.insertBefore(j, e);</span><br><span class="line">   &#125;)(document, &apos;script&apos;);</span><br><span class="line">	&lt;/script&gt;</span><br><span class="line">&lt;noscript&gt; 为正常使用来必力评论功能请激活JavaScript&lt;/noscript&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;!-- City版安装代码已完成 --&gt;</span><br></pre></td></tr></table></figure></p>
-<p>最后在layout_partial\article.ejs中&lt;% if (!index &amp;&amp; post.comments){ %&gt;后面添加如下代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if (theme.livere)&#123; %&gt;</span><br><span class="line">&lt;%- partial(&apos;post/livere&apos;, &#123;</span><br><span class="line">    key: post.slug,</span><br><span class="line">    title: post.title,</span><br><span class="line">    url: config.url+url_for(post.path)</span><br><span class="line">  &#125;) %&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure><br>至此，为yilia主题添加livere评论插件完成。如果你想使用畅言评论系统，可以进入<a href="https://changyan.kuaizhan.com/" title="畅言官网" target="_blank" rel="noopener">畅言官网</a>, 点击右上角 “免费注册”，并填写注册信息。（注意域名需要备案信息）</p>
-<h2 id="实现相册功能"><a href="#实现相册功能" class="headerlink" title="实现相册功能"></a>实现相册功能</h2><p>1、github操作<br>建立一个用于存储相册的仓库，将本地仓库提交到github<br>2、博客操作<br>•在博客的source文件夹下建立一个photos文件夹，将样式文件放到photos文件夹下<br>•修改ins.js文件，主要是里面的render函数 ，其中的url对应到你的github放图片的地址<br>3、图片处理<br>•执行python脚本，生成json文件。需要安装PIL，Windows平台去<a href="http://pythonware.com/products/pil/" title="PIL官方网站" target="_blank" rel="noopener">PIL官方网站</a>下载exe安装包比较简单（官网只有32位的PIL，刚好我的python也是32位的）<br>•需要注意的是tool.py代码中../nodeji-hexo/source/photos/data.json是对应到我的博客的路径，这里根据需要改成自己博客的路径<br>4、github提交<br>•处理完成之后需要将处理后的图片提交到github上<br>•这里同样使用脚本的方式，需要将git命令行配置到环境变量中</p>
+        <h2 id="创建Lean-Cloud应用"><a href="#创建Lean-Cloud应用" class="headerlink" title="创建Lean Cloud应用"></a>创建Lean Cloud应用</h2><blockquote><p>由于 Hexo 最终编译出来的文件是纯静态的，也就意味着文章的所有信息其实还是原封不动展示在页面中的，当你输入一篇文章的网址，所有的内容就已经跟随网络传输过来了。那我博客使用的加密是怎么实现的呢？</p>
+</blockquote>
+<p>这就要讲到 js 的阻塞机制了，在以往的经验中，当页面中有调用alert();函数的时候，整个页面会停止运行，直到你点击确定之后，页面的中的代码才会继续执行下去。我们这里需要的也是这样一个假象，阻止整个页面的渲染，直到你输入了正确的密码才能让页面继续渲染实际的文章。可是alert只有提醒的功能，没有输入的功能，所以这里要用到的是promt函数。例子参见如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var password = promt(<span class="string">'请输入文章密码'</span>);</span><br><span class="line">alert(password);</span><br></pre></td></tr></table></figure>
+<h3 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h3><p>找到themes-&gt;hexo-theme-yilia-&gt;layout-&gt;_partial-&gt;head.ejs文件。<br>按道理是添加在任何地方都行，但是推荐加在所有的标签之后，个人建议，仅做参考。以下是我加的代码：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">	(function()&#123;</span><br><span class="line">		<span class="keyword">if</span>(<span class="string">'&#123;&#123; page.password &#125;&#125;'</span>)&#123;</span><br><span class="line">			<span class="keyword">if</span> (prompt(<span class="string">'请输入文章密码'</span>,<span class="string">''</span>) !== <span class="string">'&#123;&#123; page.password &#125;&#125;'</span>)&#123;</span><br><span class="line">				alert(<span class="string">'密码错误！'</span>);</span><br><span class="line">				history.back();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;)();</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<p>然后在文章头部添加访问密码<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">title: Hexo文章简单加密访问</span><br><span class="line">date: <span class="number">2017</span><span class="number">-3</span><span class="number">-25</span> <span class="number">23</span>:<span class="number">00</span>:<span class="number">12</span></span><br><span class="line">tags:</span><br><span class="line">- hexo</span><br><span class="line">categories: 归档</span><br><span class="line">password: password</span><br><span class="line">---</span><br></pre></td></tr></table></figure></p>
+<p>这样我们就好像使用静态页面完成了部分只有动态页面能完成的东西。</p>
 
       
 
@@ -207,7 +209,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/23/yilia主题添加livere来必力评论和相册功能/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/03/25/Hexo文章简单加密访问/">展开全文 >></a>
         </p>
       
 
@@ -240,7 +242,7 @@ var _hmt = _hmt || [];
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/13/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><a class="page-number" href="/page/16/">16</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><a class="extend next" rel="next" href="/page/15/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/13/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><a class="page-number" href="/page/16/">16</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/15/">Next &raquo;</a>
     </nav>
   
 
@@ -337,7 +339,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -345,15 +347,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Nginx</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -361,11 +355,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Nginx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Spring Boot</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Shell</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Spring MVC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -374,10 +384,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">小程序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
             
             <div class="clearfix"></div>
