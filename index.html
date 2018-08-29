@@ -157,33 +157,38 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-二维码地址自动区分ios和安卓" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-多合一收款二维码原理及实现" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/23/二维码地址自动区分ios和安卓/">二维码地址自动区分ios和安卓</a>
+      <a class="article-title" href="/2018/08/24/多合一收款二维码原理及实现/">多合一收款二维码原理及实现</a>
     </h1>
   
 
 
 
         
-        <a href="/2018/08/23/二维码地址自动区分ios和安卓/" class="archive-article-date">
-  	<time datetime="2018-08-23T05:24:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-23</time>
+        <a href="/2018/08/24/多合一收款二维码原理及实现/" class="archive-article-date">
+  	<time datetime="2018-08-24T05:24:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-24</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <blockquote>
-<p>做一个网页，内容如下,把其中的安卓和ios的下载地址替换成自己的，然后将网页的地址生成二维码即可</p>
-</blockquote>
-<p><img src="https://github.com/WE666/WE666.github.io/blob/master/images/QR.png?raw=true" alt=""></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;head&gt;</span><br><span class="line">        &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt;</span><br><span class="line">        &lt;title&gt;二维码下载&lt;/title&gt;   </span><br><span class="line"> </span><br><span class="line">        &lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">            /*</span><br><span class="line">             * 智能机浏览器版本信息:</span><br><span class="line">             *</span><br><span class="line">             */</span><br><span class="line">            var browser = &#123;</span><br><span class="line">                versions: function() &#123;</span><br><span class="line">                    var u = navigator.userAgent, app = navigator.appVersion;</span><br><span class="line">                    return &#123;//移动终端浏览器版本信息</span><br><span class="line">                        trident: u.indexOf(&apos;Trident&apos;) &gt; -1, //IE内核</span><br><span class="line">                        presto: u.indexOf(&apos;Presto&apos;) &gt; -1, //opera内核</span><br><span class="line">                        webKit: u.indexOf(&apos;AppleWebKit&apos;) &gt; -1, //苹果、谷歌内核</span><br><span class="line">                        gecko: u.indexOf(&apos;Gecko&apos;) &gt; -1 &amp;&amp; u.indexOf(&apos;KHTML&apos;) == -1, //火狐内核</span><br><span class="line">                        mobile: !!u.match(/AppleWebKit.*Mobile.*/) || !!u.match(/AppleWebKit/), //是否为移动终端</span><br><span class="line">                        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端</span><br><span class="line">                        android: u.indexOf(&apos;Android&apos;) &gt; -1 || u.indexOf(&apos;Linux&apos;) &gt; -1, //android终端或者uc浏览器</span><br><span class="line">                        iPhone: u.indexOf(&apos;iPhone&apos;) &gt; -1 || u.indexOf(&apos;Mac&apos;) &gt; -1, //是否为iPhone或者QQHD浏览器</span><br><span class="line">                        iPad: u.indexOf(&apos;iPad&apos;) &gt; -1, //是否iPad</span><br><span class="line">                        webApp: u.indexOf(&apos;Safari&apos;) == -1 //是否web应该程序，没有头部与底部</span><br><span class="line">                    &#125;;</span><br><span class="line">                &#125;(),</span><br><span class="line">                language: (navigator.browserLanguage || navigator.language).toLowerCase()</span><br><span class="line">            &#125;</span><br><span class="line"> </span><br><span class="line">            if (browser.versions.ios || browser.versions.iPhone || browser.versions.iPad) &#123;</span><br><span class="line">                window.location=&quot;https://itunes.apple.com/cn/app/%E5%BE%AE%E4%BF%A1/id414478124?mt=8&amp;v0=WWW-GCCN-ITSTOP100-FREEAPPS&amp;l=&amp;ign-mpt=uo%3D4&quot;;</span><br><span class="line">            &#125;</span><br><span class="line">            else if (browser.versions.android) &#123;</span><br><span class="line">                window.location=&quot;https://gitee.com/Ling07/Memo/raw/master/app/app-release.apk&quot;;</span><br><span class="line">            &#125;</span><br><span class="line"> </span><br><span class="line">//          document.writeln(&quot;语言版本: &quot; + browser.language);</span><br><span class="line">//          document.writeln(&quot; 是否为移动终端: &quot; + browser.versions.mobile);</span><br><span class="line">//          document.writeln(&quot; ios终端: &quot; + browser.versions.ios);</span><br><span class="line">//          document.writeln(&quot; android终端: &quot; + browser.versions.android);</span><br><span class="line">//          document.writeln(&quot; 是否为iPhone: &quot; + browser.versions.iPhone);</span><br><span class="line">//          document.writeln(&quot; 是否iPad: &quot; + browser.versions.iPad);</span><br><span class="line">//          document.writeln(navigator.userAgent);</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">        &lt;/script&gt;</span><br><span class="line">    &lt;/head&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">         </span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+        <p>最近芝麻二维码的“收款码合并”火了，它能将微信收款码和支付宝收款码合并为一个二维码！听上去感觉很神奇，其实原理非常简单！</p>
+<p>无论是支付宝还是微信的收款码，其本质上是一个包含了收款链接的二维码。所以我们的思路是：检测如果是支付宝浏览页面，就给出支付宝的付款链接、如果是微信，就给出微信链接……</p>
+<p>那么问题来了，如何进行判定呢？</p>
+<p>很好办，根据 UserAgent 就能进行判定了！</p>
+<p>部分的代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">if(navigator.userAgent.match(/Alipay/i)) &#123;</span><br><span class="line">     // 支付宝</span><br><span class="line">      &#125; else if(navigator.userAgent.match(/MicroMessenger\//i)) &#123;</span><br><span class="line">     // 微信</span><br><span class="line">      &#125; else if(navigator.userAgent.match(/QQ\//i)) &#123;</span><br><span class="line">     // QQ</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">     // 其它</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure>
+<p>理论上来说，进行判定后直接给跳转到对应的收款页面就行了，然而实际测试发现在QQ和微信中并不能直接调用付款功能，只有支付宝能直接进行付款。</p>
+<p>这里就只能用一个折中的办法：如果是QQ或微信扫的码，就再放出一个二维码的界面，让用户通过长按识别二维码进入支付流程。</p>
+<p>最终完成的效果如下：</p>
+<p>注：请将代码中第 19、22、25行中的收款链接改为自己的。</p>
 
       
 
@@ -207,7 +212,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/08/23/二维码地址自动区分ios和安卓/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/08/24/多合一收款二维码原理及实现/">展开全文 >></a>
         </p>
       
 
@@ -240,7 +245,7 @@ var _hmt = _hmt || [];
   
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/25/">25</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/27/">27</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
@@ -337,15 +342,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">开发工具</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Nginx</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -357,7 +370,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Nginx</a>
+                <a href="javascript:void(0)" class="js-tag color5">开发工具</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -369,15 +382,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">spring</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">

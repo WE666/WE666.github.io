@@ -157,50 +157,30 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-Git的使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Tomcat 自动部署脚本" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/26/Git的使用/">Git的使用</a>
+      <a class="article-title" href="/2017/06/05/Tomcat 自动部署脚本/">Tomcat 自动部署脚本</a>
     </h1>
   
 
 
 
         
-        <a href="/2017/03/26/Git的使用/" class="archive-article-date">
-  	<time datetime="2017-03-26T05:24:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-26</time>
+        <a href="/2017/06/05/Tomcat 自动部署脚本/" class="archive-article-date">
+  	<time datetime="2017-06-05T09:18:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-05</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Git-全局设置"><a href="#Git-全局设置" class="headerlink" title="Git 全局设置:"></a>Git 全局设置:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;追梦人&quot;</span><br><span class="line">git config --global user.email &quot;m123456@163.com&quot;</span><br></pre></td></tr></table></figure>
-<h3 id="创建-git-仓库"><a href="#创建-git-仓库" class="headerlink" title="创建 git 仓库:"></a>创建 git 仓库:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mkdir hexo</span><br><span class="line">cd hexo</span><br><span class="line">git init</span><br><span class="line">touch README.md</span><br><span class="line">git add README.md</span><br><span class="line">git commit -m &quot;first commit&quot;</span><br><span class="line">git remote add origin https://gitee.com/Ling07/hexo.git</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
-<h3 id="已有项目"><a href="#已有项目" class="headerlink" title="已有项目"></a>已有项目</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd existing_git_repo</span><br><span class="line">git remote add origin https://gitee.com/Ling07/hexo.git</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
-<h3 id="上传本地文件到GitHub"><a href="#上传本地文件到GitHub" class="headerlink" title="上传本地文件到GitHub"></a>上传本地文件到GitHub</h3><ul>
-<li>1.点击文件夹右键Git bash here</li>
-<li>2.输入 <strong>git init</strong>，在当前项目的目录中生成本地的git管理（会发现在当前目录下多了一个.git文件夹）</li>
-<li>3.输入 <strong>git add .</strong> 这个是将项目上所有的文件添加到仓库中的意思，如果只添加某个文件只需把<strong> . </strong>换成这个特定的文件名即可。</li>
-<li>4.输入 <strong>git commit -m ‘first commit’</strong> 表示你对这次提交的注释，双引号里面的内容可以根据个人的需要改。</li>
-<li>5.输入 <strong>git remote add origin git@github.com:WE666/WE666.github.io.git</strong> 将本地的仓库关联到github上，如果出现错误：fatal:remote origin already exists  那就先输入 git remote rm origin再执行上一条命令</li>
-<li>6.最后输入 <strong>git push -u origin master</strong> 把代码上传到github仓库。</li>
-</ul>
-<p>执行完之后如果无错误就上传成功了，需要提示的是这里的master是Github默认的分支，如果你本地的当前分支不是master，就用git checkout master命令切换到master分支，如果你想用本地当前分支上传代码，则把最后一步的命令里的master切换成你的当前分支名即可。</p>
-<p><strong>注意：</strong>如果在创建远程仓库的时候，如果勾选了Initialize this repository with a README 创建仓库的时候自动给你创建一个README文件，那么你将本地仓库内容推送到远程仓库的时候就会报错。这是由于你新创建的那个仓库里面的README文件不在本地仓库目录中，这时我们可以通过以下命令先将内容合并以下：git pull –rebase origin master</p>
-<h2 id="忽略不必要的文件"><a href="#忽略不必要的文件" class="headerlink" title="忽略不必要的文件"></a>忽略不必要的文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#过滤配置文件</span><br><span class="line">*.settings</span><br><span class="line">*.project</span><br><span class="line">*.classpath</span><br><span class="line"></span><br><span class="line">#过滤文件夹target</span><br><span class="line">target/</span><br></pre></td></tr></table></figure>
-<h2 id="修改git用户名和邮箱"><a href="#修改git用户名和邮箱" class="headerlink" title="修改git用户名和邮箱"></a>修改git用户名和邮箱</h2><p>我之前有一个码云的账号，但是密码忘了，于是我重新申请了一个码云账号，因此需要修改全局用户名和邮箱。</p>
-<p>首先进入git bash</p>
-<p>输入：<strong> git config –list </strong>  可以查看user.name 和user.email  分别是什么</p>
-<p>如果你没有初始化过。那么直接：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --<span class="keyword">global</span> user.name <span class="string">"输入你的用户名"</span></span><br><span class="line">git config --<span class="keyword">global</span> user.email <span class="string">"输入你的邮箱"</span></span><br></pre></td></tr></table></figure></p>
-<p>如果已经初始化过了，但是需要修改邮箱和用户名，可以用<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --<span class="keyword">global</span> --replace-all user.email <span class="string">"输入你的邮箱"</span> </span><br><span class="line">git config --<span class="keyword">global</span> --replace-all user.name <span class="string">"输入你的用户名"</span></span><br></pre></td></tr></table></figure></p>
-<p>然后再查看：<strong> git config –list </strong> 发现修改成功</p>
-<p><strong>建议所有的git仓库都有一个README, LICENSE, .gitignore文件 </strong></p>
-<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://www.oschina.net/question/82993_133520" target="_blank" rel="noopener">如何导入外部Git仓库到中国源代码托管平台</a><br><a href="https://my.oschina.net/songxinqiang/blog/192567" target="_blank" rel="noopener">eclipse中egit插件使用</a><br><a href="https://my.oschina.net/longxuu/blog/141699" target="_blank" rel="noopener">在win7系统下使用TortoiseGit简单操作</a><br><a href="https://gitee.com/oschina/git-osc/wikis/%E5%B8%AE%E5%8A%A9" target="_blank" rel="noopener">WIKI帮助</a></p>
+        <h3 id="Tomcat-自动部署脚本"><a href="#Tomcat-自动部署脚本" class="headerlink" title="Tomcat 自动部署脚本"></a>Tomcat 自动部署脚本</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Usage: auto_deploy.sh [projName] [deploy] | deploy the specified project  </span><br><span class="line">       auto_deploy.sh [start|stop|restart] | start or stop or restart tomcat</span><br></pre></td></tr></table></figure>
+<p>auto_deploy.sh<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line"></span><br><span class="line">#################################</span><br><span class="line"># Tomcat自动部署脚本</span><br><span class="line">#</span><br><span class="line"># Auhthor: lis</span><br><span class="line"># Date: 2016-04-29</span><br><span class="line">################################</span><br><span class="line"></span><br><span class="line">usage()</span><br><span class="line">&#123;</span><br><span class="line">    echo &quot;Usage: $&#123;0##*/&#125; [projName] [deploy] | deploy the specified project &quot;</span><br><span class="line">    echo &quot;       $&#123;0##*/&#125; [start|stop|restart] | start or stop or restart tomcat&quot; </span><br><span class="line">    exit 1</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">deploy()</span><br><span class="line">&#123;</span><br><span class="line">	echo &quot;tomcat path:       $&#123;tPath&#125;&quot;</span><br><span class="line">	echo &quot;tomcat war:       $&#123;tWar&#125;&quot;</span><br><span class="line">	echo &quot;ftp path:       $&#123;ftpPath&#125;&quot;</span><br><span class="line">	echo &quot;ftp war:       $&#123;fWar&#125;&quot;</span><br><span class="line"></span><br><span class="line">	echo &apos;step1) stop tomcat&apos;</span><br><span class="line">	bash $&#123;tomcatPath&#125;/bin/shutdown.sh</span><br><span class="line">	echo &apos;stop tomcat finished...Done! &apos;</span><br><span class="line"></span><br><span class="line">	echo &apos;step2) start tomcat&apos;</span><br><span class="line">	rm -rf $&#123;tPath&#125;</span><br><span class="line">	rm -rf $&#123;tWar&#125;</span><br><span class="line">	cp $&#123;fWar&#125; $&#123;tWar&#125;</span><br><span class="line">	echo &quot;copy $&#123;projName&#125;.war file ... Done!&quot;</span><br><span class="line"></span><br><span class="line">	bash $&#123;tomcatPath&#125;/bin/startup.sh</span><br><span class="line">	echo &apos;Done!&apos;</span><br><span class="line"></span><br><span class="line">	echo &apos;show logs? y/n&apos;</span><br><span class="line">	read command</span><br><span class="line">	if [ &quot;$&#123;command&#125;&quot; == &quot;y&quot; ]; then</span><br><span class="line">		tail -f $&#123;tomcatPath&#125;/logs/catalina.out</span><br><span class="line">	fi</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">restart()</span><br><span class="line">&#123;</span><br><span class="line">	echo &apos;step1) stop tomcat&apos;</span><br><span class="line">	bash $&#123;tomcatPath&#125;/bin/shutdown.sh</span><br><span class="line">	echo &apos;stop tomcat finished...Done! &apos;</span><br><span class="line"></span><br><span class="line">	echo &apos;step2) start tomcat&apos;</span><br><span class="line">	bash $&#123;tomcatPath&#125;/bin/startup.sh</span><br><span class="line">	echo &apos;Done!&apos;</span><br><span class="line"></span><br><span class="line">	echo &apos;show logs? y/n&apos;</span><br><span class="line">	read command</span><br><span class="line">	if [ &quot;$command&quot; == &quot;y&quot; ]; then</span><br><span class="line">		tail -f $&#123;tomcatPath&#125;/logs/catalina.out</span><br><span class="line">	fi</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">start()</span><br><span class="line">&#123;</span><br><span class="line">	echo &apos;start tomcat...&apos;</span><br><span class="line">	bash $&#123;tomcatPath&#125;/bin/startup.sh</span><br><span class="line">	echo -n &apos;Done!&apos;</span><br><span class="line"></span><br><span class="line">	echo &apos;show logs? y/n&apos;</span><br><span class="line">	read command</span><br><span class="line">	if [ &quot;$command&quot; == &quot;y&quot; ]; then</span><br><span class="line">		tail -f $&#123;tomcatPath&#125;/logs/catalina.out</span><br><span class="line">	fi</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">stop()</span><br><span class="line">&#123;</span><br><span class="line">	echo &apos;stop tomcat...&apos;</span><br><span class="line">	bash $&#123;tomcatPath&#125;/bin/shutdown.sh</span><br><span class="line">	echo &apos;Done! &apos;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">## project name</span><br><span class="line">projName=$1</span><br><span class="line"></span><br><span class="line">## FTP 上传路径</span><br><span class="line">ftpPath=/usr/local/tomcat/temp</span><br><span class="line">fWar=$&#123;ftpPath&#125;/$&#123;projName&#125;.war</span><br><span class="line"></span><br><span class="line">## tomcat 路径</span><br><span class="line">tomcatPath=/usr/local/tomcat</span><br><span class="line">tPath=$&#123;tomcatPath&#125;/webapps/$&#123;projName&#125;</span><br><span class="line">tWar=$&#123;tomcatPath&#125;/webapps/$&#123;projName&#125;.war</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if [ &quot;$2&quot; == &quot;deploy&quot; ]; then</span><br><span class="line">    deploy</span><br><span class="line">elif [ &quot;$1&quot; == &quot;restart&quot; ]; then </span><br><span class="line">    restart</span><br><span class="line">elif [ &quot;$1&quot; == &quot;start&quot; ]; then </span><br><span class="line">    start</span><br><span class="line">elif [ &quot;$1&quot; == &quot;stop&quot; ]; then </span><br><span class="line">    stop</span><br><span class="line">else</span><br><span class="line">    usage</span><br><span class="line">fi</span><br></pre></td></tr></table></figure></p>
 
       
 
@@ -214,7 +194,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Shell</a>
         		</li>
       		
 		</ul>
@@ -224,7 +204,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/26/Git的使用/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/06/05/Tomcat 自动部署脚本/">展开全文 >></a>
         </p>
       
 
@@ -257,7 +237,7 @@ var _hmt = _hmt || [];
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/13/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><a class="page-number" href="/page/16/">16</a><span class="space">&hellip;</span><a class="page-number" href="/page/25/">25</a><a class="extend next" rel="next" href="/page/15/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/13/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><a class="page-number" href="/page/16/">16</a><span class="space">&hellip;</span><a class="page-number" href="/page/27/">27</a><a class="extend next" rel="next" href="/page/15/">Next &raquo;</a>
     </nav>
   
 
@@ -354,15 +334,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">开发工具</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Nginx</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -374,7 +362,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Nginx</a>
+                <a href="javascript:void(0)" class="js-tag color5">开发工具</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -386,15 +374,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">spring</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -157,36 +157,42 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-Spring MVC 处理静态资源拦截" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Nginx 禁止IP访问 只允许域名访问" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/26/Spring MVC 处理静态资源拦截/">Spring MVC 处理静态资源拦截</a>
+      <a class="article-title" href="/2018/03/27/Nginx 禁止IP访问 只允许域名访问/">Nginx 禁止IP访问 只允许域名访问</a>
     </h1>
   
 
 
 
         
-        <a href="/2018/03/26/Spring MVC 处理静态资源拦截/" class="archive-article-date">
-  	<time datetime="2018-03-26T13:16:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-26</time>
+        <a href="/2018/03/27/Nginx 禁止IP访问 只允许域名访问/" class="archive-article-date">
+  	<time datetime="2018-03-27T14:25:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-27</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="前端控制器的配置"><a href="#前端控制器的配置" class="headerlink" title="前端控制器的配置"></a>前端控制器的配置</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- springmvc的前端控制器 --&gt;</span><br><span class="line">&lt;servlet&gt;</span><br><span class="line">    &lt;servlet-name&gt;springMVC&lt;/servlet-name&gt;</span><br><span class="line">    &lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;/servlet-class&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 如果contextConfigLocation不配置springmvc的配置文件默认在：WEB-INF/servlet的name+<span class="string">"-servlet.xml"</span> --&gt;</span><br><span class="line"></span><br><span class="line">    &lt;init-param&gt;</span><br><span class="line">        &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;</span><br><span class="line">        &lt;param-value&gt;classpath:spring/springmvc.xml&lt;/param-value&gt;</span><br><span class="line">    &lt;/init-param&gt;</span><br><span class="line">    &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;</span><br><span class="line">&lt;/servlet&gt;</span><br><span class="line"></span><br><span class="line">&lt;servlet-mapping&gt;</span><br><span class="line">    &lt;servlet-name&gt;springMVC&lt;/servlet-name&gt;</span><br><span class="line">    &lt;url-pattern&gt;/&lt;/url-pattern&gt;</span><br><span class="line">&lt;/servlet-mapping&gt;</span><br></pre></td></tr></table></figure>
-<p>/ 表示拦截所有的请求，包括静态资源 </p>
-<p><url-pattern>/</url-pattern> –表示拦截所有的请求，包括静态资源</p>
-<h3 id="去静态资源拦截的两种方式"><a href="#去静态资源拦截的两种方式" class="headerlink" title="去静态资源拦截的两种方式"></a>去静态资源拦截的两种方式</h3><p><strong>1.在web.xml中配置映射</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 对静态资源的配置 --&gt;</span><br><span class="line">&lt;servlet-mapping&gt;</span><br><span class="line">    &lt;servlet-name&gt;default&lt;/servlet-name&gt;</span><br><span class="line">    &lt;url-pattern&gt;*.js&lt;/url-pattern&gt;</span><br><span class="line">    &lt;url-pattern&gt;*.css&lt;/url-pattern&gt;</span><br><span class="line">    &lt;url-pattern&gt;*.ico&lt;/url-pattern&gt;</span><br><span class="line">    &lt;url-pattern&gt;/img/*&lt;/url-pattern&gt;</span><br><span class="line">    &lt;url-pattern&gt;/fonts/*&lt;/url-pattern&gt;</span><br><span class="line">    &lt;url-pattern&gt;/font/*&lt;/url-pattern&gt;</span><br><span class="line">&lt;/servlet-mapping&gt;</span><br></pre></td></tr></table></figure></p>
-<p>可以根据自身情况，来配置映射</p>
-<p><strong>注意：</strong> 请将它放在所有Servlet的最前面（为了让它最先匹配），这样的话性能上应该比较好 </p>
-<p><strong>2.在springMVC.xml中添加静态资源的映射</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> &lt;!-- 资源映射 --&gt;</span><br><span class="line">&lt;mvc:resources location=<span class="string">"/WEB-INF/css/"</span> mapping=<span class="string">"/css/**"</span>/&gt;</span><br><span class="line">&lt;mvc:resources location=<span class="string">"/WEB-INF/js/"</span> mapping=<span class="string">"/js/**"</span>/&gt;</span><br></pre></td></tr></table></figure>
+        <p>在Nginx上设置禁止通过IP访问服务器，只能通过域名访问，这样做是为了避免别人把未备案的域名解析到自己的服务器IP而导致服务器被断网。比如别人通过ip或者未知域名访问你的网站的时候，你希望禁止显示任何有效内容，可以给他返回500.目前国内很多机房都要求网站主关闭空主机头，防止未备案的域名指向过来造成麻烦。</p>
+<h3 id="修改nginx-conf-文件"><a href="#修改nginx-conf-文件" class="headerlink" title="修改nginx.conf 文件"></a>修改nginx.conf 文件</h3><p>初始时是：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen 80 default_server;</span><br><span class="line">    server_name www.lnmp.org;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>修改成：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">listen 80;</span><br><span class="line">server_name www.jb51.net;  <span class="comment">#这里是你自己指定的域名</span></span><br><span class="line">...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>再在上个server后继续添加一段：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">server ｛</span><br><span class="line">listen 80 default_server;</span><br><span class="line">server_name _;</span><br><span class="line"><span class="built_in">return</span> 403;</span><br><span class="line">｝</span><br></pre></td></tr></table></figure></p>
+<p>这里是在接收到ip访问或非指定域名访问时会返回403错误</p>
+<p>也可以把这些流量收集起来，导入到自己的网站，只要做以下跳转设置就可以：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">server &#123; </span><br><span class="line">  listen 80 default; <span class="comment">#default表示是默认虚拟主机</span></span><br><span class="line">  rewrite ^(.*) http://www.jb51.net permanent; </span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p>按照如上设置后，确实不能通过IP访问服务器了，但是在应该用中出现当server_name后跟多个域名时，其中一个域名怎么都无法访问，设置如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">server &#123; </span><br><span class="line">  listen 80; </span><br><span class="line">  server_name www.jb51.net jb51.net </span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
+<p>没更改之前，通过server_name 中的www.jb51.net jb51.net均可访问服务器，加入Nginx 禁止IP访问的设置后，通过jb51.net无法访问服务器了，www.jb51.net可以访问，用 Nginx -t 检测配置文件会提示warning：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[warn]: conflicting server name “jb51.net” on 0.0.0.0:80, </span><br><span class="line">ignored </span><br><span class="line">the configuration file /usr/<span class="built_in">local</span>/Nginx/conf/</span><br><span class="line">Nginx.conf syntax is ok </span><br><span class="line">configuration file /usr/<span class="built_in">local</span>/Nginx/conf/Nginx.</span><br><span class="line">conf <span class="built_in">test</span> is successful</span><br></pre></td></tr></table></figure></p>
+<p>最后通过在listen 80 default;后再加server<em>name </em>;解决，形式如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">server </span><br><span class="line">&#123; </span><br><span class="line">listen 80 default; </span><br><span class="line">server_name _; </span><br><span class="line"><span class="built_in">return</span> 500; </span><br><span class="line">&#125; </span><br><span class="line">或者</span><br><span class="line">server &#123; </span><br><span class="line">listen 80 dufault; </span><br><span class="line">server_name _; </span><br><span class="line">rewrite ^(.*) http://www.jb51.net permanent; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">server &#123; </span><br><span class="line"> listen 80 default; </span><br><span class="line"> server_name _; </span><br><span class="line"> server_name www.jb51.net jb51.net </span><br><span class="line"> <span class="built_in">return</span> 500; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样，通过jb51.net就能访问服务器了。<br>第一种情况：访问A站定向到B站<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">server &#123; </span><br><span class="line">server_name www.jb51.net ; </span><br><span class="line">rewrite ^(.*) http://www.jbzj.com<span class="variable">$1</span> permanent; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>第二种情况：不是访问A站的全部重定向到指定页面<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">server &#123; </span><br><span class="line">server_name www.jb51.net; </span><br><span class="line"><span class="keyword">if</span> (<span class="variable">$host</span> != <span class="string">'jb51.net'</span>) &#123; </span><br><span class="line">rewrite ^/(.*)$ http://www.jbzj.com/<span class="variable">$1</span> permanent; </span><br><span class="line">	&#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>如果写在第一个server段使用IP访问时也将被重定向</p>
 
       
 
@@ -200,7 +206,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Spring MVC</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Nginx</a>
         		</li>
       		
 		</ul>
@@ -210,7 +216,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/26/Spring MVC 处理静态资源拦截/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/03/27/Nginx 禁止IP访问 只允许域名访问/">展开全文 >></a>
         </p>
       
 
@@ -243,7 +249,7 @@ var _hmt = _hmt || [];
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/6/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/25/">25</a><a class="extend next" rel="next" href="/page/8/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/6/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/27/">27</a><a class="extend next" rel="next" href="/page/8/">Next &raquo;</a>
     </nav>
   
 
@@ -340,15 +346,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">开发工具</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Nginx</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -360,7 +374,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Nginx</a>
+                <a href="javascript:void(0)" class="js-tag color5">开发工具</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -372,15 +386,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">spring</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">

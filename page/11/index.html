@@ -157,30 +157,65 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-Python实现微信消息防撤回" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Linux环境下安装shadowsocks" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/06/Python实现微信消息防撤回/">Python实现微信消息防撤回</a>
+      <a class="article-title" href="/2018/01/15/Linux环境下安装shadowsocks/">Linux环境下安装shadowsocks</a>
     </h1>
   
 
 
 
         
-        <a href="/2017/07/06/Python实现微信消息防撤回/" class="archive-article-date">
-  	<time datetime="2017-07-06T09:18:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-06</time>
+        <a href="/2018/01/15/Linux环境下安装shadowsocks/" class="archive-article-date">
+  	<time datetime="2018-01-15T05:24:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-15</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在网上看到了一个基于python的微信开源库：<a href="https://github.com/littlecodersh/ItChat" target="_blank" rel="noopener">itchat</a>，玩了一天，做了一个程序，把私聊撤回的信息可以收集起来并发送到个人微信的文件传输助手，包括：文本、图片、语音、视频、分享、位置、附件。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br></pre></td><td class="code"><pre><span class="line"># --encoding:utf-8--</span><br><span class="line">import os</span><br><span class="line">import re</span><br><span class="line">import shutil</span><br><span class="line">import time</span><br><span class="line">import itchat</span><br><span class="line">from itchat.content import *</span><br><span class="line"></span><br><span class="line"># 说明：可以撤回的有文本文字、语音、视频、图片、位置、名片、分享、附件</span><br><span class="line"># &#123;msg_id:(msg_from,msg_to,msg_time,msg_time_rec,msg_type,msg_content,msg_share_url)&#125;</span><br><span class="line">msg_dict = &#123;&#125;</span><br><span class="line"></span><br><span class="line"># 文件存储临时目录</span><br><span class="line">rev_tmp_dir = &quot;./file&quot;</span><br><span class="line">if not os.path.exists(rev_tmp_dir): os.mkdir(rev_tmp_dir)</span><br><span class="line"></span><br><span class="line"># 表情有一个问题 | 接受信息和接受note的msg_id不一致 巧合解决方案</span><br><span class="line">face_bug = None</span><br><span class="line"></span><br><span class="line"># 将接收到的消息存放在字典中，当接收到新消息时对字典中超时的消息进行清理 | 不接受不具有撤回功能的信息</span><br><span class="line"># [TEXT, PICTURE, MAP, CARD, SHARING, RECORDING, ATTACHMENT, VIDEO, FRIENDS, NOTE]</span><br><span class="line">@itchat.msg_register([TEXT, PICTURE, MAP, CARD, SHARING, RECORDING, ATTACHMENT, VIDEO])</span><br><span class="line">def handler_receive_msg(msg):</span><br><span class="line">	global face_bug</span><br><span class="line">	# 获取的是本地时间戳并格式化本地时间戳 e: 2017-04-21 21:30:08</span><br><span class="line">	msg_time_rec = time.strftime(&quot;%Y-%m-%d %H:%M:%S&quot;, time.localtime())</span><br><span class="line">	# 消息ID</span><br><span class="line">	msg_id = msg[&apos;MsgId&apos;]</span><br><span class="line">	# 消息时间</span><br><span class="line">	msg_time = msg[&apos;CreateTime&apos;]</span><br><span class="line">	# 消息发送人昵称 | 这里也可以使用RemarkName备注　但是自己或者没有备注的人为None</span><br><span class="line">	msg_from = (itchat.search_friends(userName=msg[&apos;FromUserName&apos;]))[&quot;NickName&quot;]</span><br><span class="line">	# 消息内容</span><br><span class="line">	msg_content = None</span><br><span class="line">	# 分享的链接</span><br><span class="line">	msg_share_url = None</span><br><span class="line">	if msg[&apos;Type&apos;] == &apos;Text&apos; \</span><br><span class="line">			or msg[&apos;Type&apos;] == &apos;Friends&apos;:</span><br><span class="line">		msg_content = msg[&apos;Text&apos;]</span><br><span class="line">	elif msg[&apos;Type&apos;] == &apos;Recording&apos; \</span><br><span class="line">			or msg[&apos;Type&apos;] == &apos;Attachment&apos; \</span><br><span class="line">			or msg[&apos;Type&apos;] == &apos;Video&apos; \</span><br><span class="line">			or msg[&apos;Type&apos;] == &apos;Picture&apos;:</span><br><span class="line">		msg_content = r&quot;&quot; + msg[&apos;FileName&apos;]</span><br><span class="line">		# 保存文件</span><br><span class="line">		msg[&apos;Text&apos;](rev_tmp_dir + msg[&apos;FileName&apos;])</span><br><span class="line">	elif msg[&apos;Type&apos;] == &apos;Card&apos;:</span><br><span class="line">		msg_content = msg[&apos;RecommendInfo&apos;][&apos;NickName&apos;] + r&quot; 的名片&quot;</span><br><span class="line">	elif msg[&apos;Type&apos;] == &apos;Map&apos;:</span><br><span class="line">		x, y, location = re.search(</span><br><span class="line">			&quot;&lt;location x=\&quot;(.*?)\&quot; y=\&quot;(.*?)\&quot;.label=\&quot;(.*?)\&quot;.*&quot;, msg[&apos;OriContent&apos;]).group(1, 2, 3)</span><br><span class="line">		if location is None:</span><br><span class="line">			msg_content = r&quot;纬度-&gt;&quot; + x.__str__() + &quot; 经度-&gt;&quot; + y.__str__()</span><br><span class="line">		else:</span><br><span class="line">			msg_content = r&quot;&quot; + location</span><br><span class="line">	elif msg[&apos;Type&apos;] == &apos;Sharing&apos;:</span><br><span class="line">		msg_content = msg[&apos;Text&apos;]</span><br><span class="line">		msg_share_url = msg[&apos;Url&apos;]</span><br><span class="line">	face_bug = msg_content</span><br><span class="line"></span><br><span class="line">	# 更新字典</span><br><span class="line">	msg_dict.update(</span><br><span class="line">		&#123;</span><br><span class="line">			msg_id: &#123;</span><br><span class="line">				&quot;msg_from&quot;: msg_from, &quot;msg_time&quot;: msg_time, &quot;msg_time_rec&quot;: msg_time_rec,</span><br><span class="line">				&quot;msg_type&quot;: msg[&quot;Type&quot;],</span><br><span class="line">				&quot;msg_content&quot;: msg_content, &quot;msg_share_url&quot;: msg_share_url</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	)</span><br><span class="line"></span><br><span class="line"># 收到note通知类消息，判断是不是撤回并进行相应操作</span><br><span class="line">@itchat.msg_register([NOTE])</span><br><span class="line">def send_msg_helper(msg):</span><br><span class="line">	global face_bug</span><br><span class="line">	if re.search(r&quot;\&lt;\!\[CDATA\[.*撤回了一条消息\]\]\&gt;&quot;, msg[&apos;Content&apos;]) is not None:</span><br><span class="line">		# 获取消息的id</span><br><span class="line">		old_msg_id = re.search(&quot;\&lt;msgid\&gt;(.*?)\&lt;\/msgid\&gt;&quot;, msg[&apos;Content&apos;]).group(1)</span><br><span class="line">		old_msg = msg_dict.get(old_msg_id, &#123;&#125;)</span><br><span class="line">		if len(old_msg_id) &lt; 11:</span><br><span class="line">			itchat.send_file(rev_tmp_dir + face_bug, toUserName=&apos;filehelper&apos;)</span><br><span class="line">			os.remove(rev_tmp_dir + face_bug)</span><br><span class="line">		else:</span><br><span class="line">			msg_body = &quot;告诉你一个秘密~&quot; + &quot;\n&quot; \</span><br><span class="line">						+ old_msg.get(&apos;msg_from&apos;) + &quot; 撤回了 &quot; + old_msg.get(&quot;msg_type&quot;) + &quot; 消息&quot; + &quot;\n&quot; \</span><br><span class="line">						+ old_msg.get(&apos;msg_time_rec&apos;) + &quot;\n&quot; \</span><br><span class="line">						+ &quot;撤回了什么 ⇣&quot; + &quot;\n&quot; \</span><br><span class="line">						+ r&quot;&quot; + old_msg.get(&apos;msg_content&apos;)</span><br><span class="line">			# 如果是分享存在链接</span><br><span class="line">			if old_msg[&apos;msg_type&apos;] == &quot;Sharing&quot;: msg_body += &quot; 就是这个链接➣ &quot; + old_msg.get(&apos;msg_share_url&apos;)</span><br><span class="line"></span><br><span class="line">			# 将撤回消息发送到文件助手</span><br><span class="line">			itchat.send(msg_body, toUserName=&apos;filehelper&apos;)</span><br><span class="line"></span><br><span class="line">			# 有文件的话也要将文件发送回去</span><br><span class="line">			if old_msg[&quot;msg_type&quot;] == &quot;Picture&quot; \</span><br><span class="line">					or old_msg[&quot;msg_type&quot;] == &quot;Recording&quot; \</span><br><span class="line">					or old_msg[&quot;msg_type&quot;] == &quot;Video&quot; \</span><br><span class="line">					or old_msg[&quot;msg_type&quot;] == &quot;Attachment&quot;:</span><br><span class="line">				file = &apos;@fil@%s&apos; % (rev_tmp_dir + old_msg[&apos;msg_content&apos;])</span><br><span class="line">				itchat.send(msg=file, toUserName=&apos;filehelper&apos;)</span><br><span class="line">				os.remove(rev_tmp_dir + old_msg[&apos;msg_content&apos;])</span><br><span class="line">			# 删除字典旧消息</span><br><span class="line">			msg_dict.pop(old_msg_id)</span><br><span class="line"></span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">	itchat.auto_login(hotReload=True,enableCmdQR=2)</span><br><span class="line">	itchat.run()</span><br></pre></td></tr></table></figure>
+        <h3 id="1-安装ssr"><a href="#1-安装ssr" class="headerlink" title="1. 安装ssr"></a>1. 安装ssr</h3><p>参考: <a href="https://www.djangoz.com/2017/08/16/linux_setup_ssr/" target="_blank" rel="noopener">https://www.djangoz.com/2017/08/16/linux_setup_ssr/</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">wget https://onlyless.github.io/ssr</span><br><span class="line">sudo mv ssr /usr/local/bin</span><br><span class="line">sudo chmod 777 /usr/local/bin/ssr</span><br><span class="line">ssr install</span><br><span class="line">ssr config</span><br></pre></td></tr></table></figure>
+<p>没安装git的话先安装git</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install git</span><br></pre></td></tr></table></figure>
+<h3 id="2-使用Privoxy将sock5代理映射为http代理"><a href="#2-使用Privoxy将sock5代理映射为http代理" class="headerlink" title="2. 使用Privoxy将sock5代理映射为http代理"></a>2. 使用Privoxy将sock5代理映射为http代理</h3><ol>
+<li>安装Privoxy</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install privoxy</span><br></pre></td></tr></table></figure>
+<ol>
+<li>配置Privoxy, 打开 /etc/privoxy/config</li>
+</ol>
+<p>注释掉</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">listen-address  localhost:8118</span><br></pre></td></tr></table></figure>
+<p>在最后一行后边加上</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">forward-socks5 / 127.0.0.1:1080 .</span><br><span class="line">listen-address 127.0.0.1:8118</span><br></pre></td></tr></table></figure>
+<ol>
+<li>重启Privoxy</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service privoxy restart</span><br></pre></td></tr></table></figure>
+<p>这样就完成了sock5到http代理的映射</p>
+<ol>
+<li>然后就可以配置全局http proxy, sudo vi /etc/environment, 加入下面的代码</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export http_proxy=http://127.0.0.1:8118</span><br><span class="line">export https_proxy=http://127.0.0.1:8118</span><br></pre></td></tr></table></figure>
+<h3 id="安装proxychains-ng"><a href="#安装proxychains-ng" class="headerlink" title="安装proxychains-ng"></a>安装proxychains-ng</h3><ol>
+<li>去<a href="https://github.com/rofl0r/proxychains-ng" target="_blank" rel="noopener">https://github.com/rofl0r/proxychains-ng</a>下载release包</li>
+<li>配置gcc</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">./configure --prefix=/usr --sysconfdir=/etc</span><br><span class="line"> make</span><br><span class="line"> [optional] sudo make install</span><br><span class="line"> [optional] sudo make install-config (installs proxychains.conf)</span><br></pre></td></tr></table></figure>
+<ol>
+<li>修改配置文件<br>vim /etc/proxychains.conf, 改最后一行端口号</li>
+<li>测试</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">proxychains4 curl www.google.com</span><br></pre></td></tr></table></figure>
+<p>到此全部搞定！</p>
+<h3 id="其他科学上网方式"><a href="#其他科学上网方式" class="headerlink" title="其他科学上网方式"></a>其他科学上网方式</h3><p>1.<a href="http://www.getlandeng27.org/" target="_blank" rel="noopener">蓝灯</a><br>2.<a href="https://s3.amazonaws.com/psiphon/web/4vul-knjv-amkn/zh/download.html#direct" target="_blank" rel="noopener">赛风</a><br>3.<a href="https://monocloud.com.au/" target="_blank" rel="noopener">MONOCLOUD</a><br>4.<a href="http://xsjs.vlinuxj.com/accounts/login/?redirect_url=Lw==" target="_blank" rel="noopener">小双加速</a><br>5.<a href="https://vip.member.biwcloud.com/cart.php" target="_blank" rel="noopener">biwcloud</a><br>6.<a href="https://agentneo.rocks/" target="_blank" rel="noopener">AgentNEO</a></p>
+
       
 
       
@@ -193,7 +228,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">爬虫</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
         		</li>
       		
 		</ul>
@@ -203,7 +238,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/06/Python实现微信消息防撤回/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/01/15/Linux环境下安装shadowsocks/">展开全文 >></a>
         </p>
       
 
@@ -236,7 +271,7 @@ var _hmt = _hmt || [];
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/10/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/25/">25</a><a class="extend next" rel="next" href="/page/12/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/10/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/27/">27</a><a class="extend next" rel="next" href="/page/12/">Next &raquo;</a>
     </nav>
   
 
@@ -333,15 +368,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">开发工具</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Nginx</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -353,7 +396,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Nginx</a>
+                <a href="javascript:void(0)" class="js-tag color5">开发工具</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -365,15 +408,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">spring</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">

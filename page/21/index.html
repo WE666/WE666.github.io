@@ -157,33 +157,42 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-数据结构-双向链表" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Google和Oracle的爱恨情仇" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/17/数据结构-双向链表/">数据结构-双向链表</a>
+      <a class="article-title" href="/2017/03/05/Google和Oracle的爱恨情仇/">Google和Oracle的爱恨情仇</a>
     </h1>
   
 
 
 
         
-        <a href="/2017/02/17/数据结构-双向链表/" class="archive-article-date">
-  	<time datetime="2017-02-17T05:24:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-17</time>
+        <a href="/2017/03/05/Google和Oracle的爱恨情仇/" class="archive-article-date">
+  	<time datetime="2017-03-05T09:18:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-05</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <blockquote>
-<p>双向链表（double linked list): 是在单链表的每个结点中，再设置一个指向前驱结点的指针域。因此，在双向链表中的结点都有两个指针域，一个指向前驱，一个指向后继。</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br></pre></td><td class="code"><pre><span class="line">package com.lq.linklist;</span><br><span class="line"></span><br><span class="line">public class DoubleLinkedList  </span><br><span class="line">&#123;  </span><br><span class="line">  // 节点类Node  </span><br><span class="line">  private static class Node  </span><br><span class="line">  &#123;  </span><br><span class="line">    Object value;  		//数据域</span><br><span class="line">    Node prev = this;   //结点域</span><br><span class="line">    Node next = this;   //结点域</span><br><span class="line"></span><br><span class="line">    Node(Object v)  </span><br><span class="line">    &#123;  </span><br><span class="line">      value = v;  </span><br><span class="line">    &#125;  </span><br><span class="line"></span><br><span class="line">    public String toString()  </span><br><span class="line">    &#123;  </span><br><span class="line">      return value.toString();  </span><br><span class="line">    &#125;  </span><br><span class="line">  &#125;  </span><br><span class="line">  private Node head = new Node(null); // 头节点  </span><br><span class="line">  private int size;					 // 链表大小</span><br><span class="line"> </span><br><span class="line">  // 以下是接口方法  </span><br><span class="line">  public boolean addFirst(Object o)  </span><br><span class="line">  &#123;  </span><br><span class="line">    addAfter(new Node(o), head); //添加到链表表头  </span><br><span class="line">    return true;  </span><br><span class="line">  &#125;  </span><br><span class="line">  </span><br><span class="line">  public boolean addLast(Object o)  </span><br><span class="line">  &#123;  </span><br><span class="line">    addBefore(new Node(o), head); //将元素添加到链表表尾 </span><br><span class="line">    return true;  </span><br><span class="line">  &#125;  </span><br><span class="line"></span><br><span class="line">  public boolean add(Object o)  </span><br><span class="line">  &#123;  </span><br><span class="line">    return addLast(o);  </span><br><span class="line">  &#125;  </span><br><span class="line">  </span><br><span class="line">  public boolean add(int index, Object o)  </span><br><span class="line">  &#123;  </span><br><span class="line">    addBefore(new Node(o), getNode(index));  //将元素添加到指定位置</span><br><span class="line">    return true;  </span><br><span class="line">  &#125;  </span><br><span class="line">  </span><br><span class="line">  public boolean remove(int index)  </span><br><span class="line">  &#123;  </span><br><span class="line">    removeNode(getNode(index));  //移除指定位置</span><br><span class="line">    return true;  </span><br><span class="line">  &#125;  </span><br><span class="line">  </span><br><span class="line">  public boolean removeFirst()  </span><br><span class="line">  &#123;  </span><br><span class="line">    removeNode(head.next);  //移除链表表头元素</span><br><span class="line">    return true;  </span><br><span class="line">  &#125;  </span><br><span class="line">  </span><br><span class="line">  public boolean removeLast()  </span><br><span class="line">  &#123;  </span><br><span class="line">    removeNode(head.prev);  //移除链表表尾元素</span><br><span class="line">    return true;  </span><br><span class="line">  &#125;  </span><br><span class="line">  </span><br><span class="line">  public Object get(int index)  </span><br><span class="line">  &#123;  </span><br><span class="line">    return getNode(index).value; //取到指定位置的元素值 </span><br><span class="line">  &#125;  </span><br><span class="line">  </span><br><span class="line">  public int size()  </span><br><span class="line">  &#123;  </span><br><span class="line">    return size; //返回链表的大小 </span><br><span class="line">  &#125;  </span><br><span class="line"></span><br><span class="line">  public String toString()  </span><br><span class="line">  &#123;  </span><br><span class="line">    StringBuffer s = new StringBuffer(&quot;[&quot;);  </span><br><span class="line">    Node node = head;  </span><br><span class="line">    for (int i = 0; i &lt; size; i++)  </span><br><span class="line">    &#123;  </span><br><span class="line">      node = node.next;  </span><br><span class="line">      if (i &gt; 0)  </span><br><span class="line">        s.append(&quot;, &quot;);  </span><br><span class="line">      s.append(node.value);  </span><br><span class="line">    &#125;  </span><br><span class="line">    s.append(&quot;]&quot;);  </span><br><span class="line">    return s.toString();  </span><br><span class="line">  &#125;  </span><br><span class="line">  //以下是实现方法  </span><br><span class="line"></span><br><span class="line">  //查找链表元素</span><br><span class="line">  private Node getNode(int index)  </span><br><span class="line">  &#123;  </span><br><span class="line">      if (index &lt; 0 || index &gt;= size)  </span><br><span class="line">          throw new IndexOutOfBoundsException();  </span><br><span class="line">        Node node = head.next;  </span><br><span class="line">        for (int i = 0; i &lt; index; i++)  </span><br><span class="line">          node = node.next;  </span><br><span class="line">        return node; </span><br><span class="line">  &#125;  </span><br><span class="line">  //在某元素之前添加元素</span><br><span class="line">  private void addBefore(Node newNode, Node node)  </span><br><span class="line">  &#123;  </span><br><span class="line">    newNode.prev = node.prev;</span><br><span class="line">    newNode.next = node;</span><br><span class="line">    newNode.next.prev = newNode;</span><br><span class="line">    newNode.prev.next = newNode;</span><br><span class="line">    size++;</span><br><span class="line">  &#125;  </span><br><span class="line">  //在某元素之后添加元素</span><br><span class="line">  private void addAfter(Node newNode, Node node)  </span><br><span class="line">  &#123;  </span><br><span class="line">      newNode.prev = node;</span><br><span class="line">      newNode.next = node.next;</span><br><span class="line">      newNode.next.prev = newNode;</span><br><span class="line">      newNode.prev.next = newNode;</span><br><span class="line">      size++;</span><br><span class="line">  &#125;  </span><br><span class="line">  //移除特定元素</span><br><span class="line">  private void removeNode(Node node)  </span><br><span class="line">  &#123;  </span><br><span class="line">    node.next.prev = node.prev;</span><br><span class="line">    node.prev.next = node.next;</span><br><span class="line">    node.prev = null;</span><br><span class="line">    node.next = null;</span><br><span class="line">    size--;</span><br><span class="line">  &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>测试<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">package com.lq.linklist;</span><br><span class="line"></span><br><span class="line">public class Test  </span><br><span class="line">&#123;  </span><br><span class="line">public static void main(String[] args)  </span><br><span class="line">&#123;  </span><br><span class="line">  DoubleLinkedList dblink = new DoubleLinkedList();  </span><br><span class="line">  dblink.add(&quot;b&quot;);  </span><br><span class="line">  dblink.add(&quot;c&quot;);  </span><br><span class="line">  dblink.add(&quot;d&quot;);  </span><br><span class="line">  System.out.println(dblink);  </span><br><span class="line"></span><br><span class="line">  dblink.addFirst(&quot;a&quot;);   //添加到最前  </span><br><span class="line">  System.out.println(dblink);  </span><br><span class="line"></span><br><span class="line">  dblink.addLast(&quot;f&quot;);   //添加到最后 </span><br><span class="line">  System.out.println(dblink);</span><br><span class="line"></span><br><span class="line">  dblink.add(4, &quot;e&quot;);   //添加到指定位置  </span><br><span class="line">  System.out.println(dblink);  </span><br><span class="line">  </span><br><span class="line">  dblink.remove(2);    //移除指定位置上的元素</span><br><span class="line">  System.out.println(dblink);  </span><br><span class="line"></span><br><span class="line">  //获取指定位置上的元素  </span><br><span class="line">  System.out.println(dblink.get(1));  </span><br><span class="line"></span><br><span class="line">&#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+        <p>Google和Oracle的官司一直以来是Android开发程序员津津乐道的。那么就来简单叙述一下，这场官司产生的原因。</p>
+<p>Java不仅仅是一门编程语言，更是一个平台，当年，Java在Sun手中的时候，Sun就推出了J2ME环境，试图来统一手机市场，以自己的Java虚拟机作为一个通用的移动开发平台，但是没有成功。但这不影响Java的影响力，Java的影响力仍然很大，Sun的Java虚拟机仍在许多著名的手机制造商的手机上使用，比如：诺基亚的Symbian系统，RIM的Blackberry系统都采用了Java虚拟机作为程序的运行环境，不过在Android和iOS的兴起中Java虚拟机在手机上的使用已经变得越来越少了。</p>
+<p>Java是门编程语言，我们大家都可以进行使用（开发软件级别），当然Oracle是很希望广大的程序使用Java开进行开发的，但是Oracle毕竟是商业公司，商业公司更关心的是自己的利益，那么利益如何产生和保证呢？那就需要保持一个统一的平台，并且使这个平台在自己的控制下，Java的运行环境所必须的就是Oracle的Java虚拟机，如果软件的厂商想要在自己的手机上面使用Java虚拟机必须要经过Oracle的授权，这就会有利益产生了。（语言本身是不需要收费的，但是整个Java的环境需要授权比如：Java虚拟机，当然对于我们普通开发者来说在自己电脑上开发Java软件是不需要的，但是到了厂商级别就需要了）。</p>
+<p>Oracle目前是Java的所有者，拥有在语言和平台上的专利，Android的发展其实是促使了更多的人来使用Java语言，换句话说是促进了Java的发展，但是Google的Android系统有自己的虚拟机，没有使用Java平台的虚拟机，这样的话Java使用的再多对Oracle也没有任何利益产生了，所以Oracle要起诉Google了。</p>
+<p>对于Java的所有者来说Oracle来说，拥有Java的运行的平台才能保证自己的利益，而不是仅仅使用Java语言，他不希望别人去开发自己的运行平台，而Google恰恰是违反了这一点，Google的Dalvik虚拟机采用了大量Apache下的开源Java运行平台Harmony。Android的Dalvik虚拟机运行的不仅仅是Java程序，可以说Dalvik完全可以运行其他的语言开发的程序，但是Google为了吸引Java程序员，运行程序员使用Android的SDK将Java代码转换成Dalvik可以运行的代码，它是如何实现的呢？Google公司在开发Android的时候，雇佣了Sun的一些程序员，利用Harmony中的开源Java库开实现Java程序的转换，避开了授权费用，这样就意味着开发者可以使用Java语言来为非Java平台开发程序，Android的火爆不能给Oracle公司带来任何的商业利用，而且还造成了平台的分裂。</p>
+<p>自从Oracle掌管Java之后，Apache的Java开源项目Harmony也被Oracle拒之门外，（Harmony 是Apache软件基金会主导的开放源代码项目，是自由Java实现计划的一部分，基于Java SE5与6，目标是以开放源代码方式，实现出Java SDK。J2SE 5.0完整性99%,J2SE6.0完成 97%。Android操作系统历来是Harmony的用户，在Android Nougat后依赖OpenJDK库，将专利的JDK替换为开源方案的OpenJDK，以彻底解决ava的专利问题），Oracle拒绝给Harmony提供兼容性测试，这样就是意味着Harmony与Java平台的分裂，这也表明，Java的版本在Oracle这里，用Java语言就要受限于Oracle。<br>当开源的Java运行平台Harmony在Apache协议下出现的时候，Sun公司就不高兴，当时没有出现大的冲突可能是因为这个平台还不成气候吧。</p>
+<p>2018年3月，法院认定Android侵权，判Oracle胜诉。Google对此感到失望，并表示会进一步采取措施，寻求其他解决方案。</p>
+<p>法院认定Google 在为其 Android 系统建构定制版的 Java 平台时侵犯了Oracle的版权，抄袭了近 11,000 多行代码，但 Google 仍可以向最高法院上诉。这个裁决将不只影响Oracle与 Google，可能会对相关软件业者及开发商造成冲击。</p>
+<p>Android 是目前市占率最高的智能设备操作系统，有超过 20 亿的设备使用，尽管并不会因为此判决而被禁止，但相关业者恐怕仍须修改相关程序，将造成业界相当大的损失。Google 其实在 2016 年发布 Nougat 版本时就已将程序码改用自  Java 的开源版本，但仍然可能会造成不兼容的问题，将迫使许多应用程序进行改写。</p>
+<p>主要问题在于 Google 使用了 Java API（应用程序接口）。原本此举是为了让程序设计员能在不用完全重新学习语言，也能够继续开发 Android 应用程序，且许多软件商也采取类似措施。如果最新的判决未被推翻，都可能将面临一系列版权诉讼。Google 声称Oracle的版权范围，并未涵盖 API 的部分，而如今法院并不支持这样的说法。</p>
+<p>法院表示，尽管 Android 是开源软件，但其也为 Google 带来数百亿美元的可观收入，所以并不能为 Google 免费使用 Java API packages 带来正当性。Google 发言人指出，他们对法院推翻之前的立场相当失望，Java 应是一个开放的免费平台。</p>
+<p>而Oracle强调，Java 可以免费提供给程序开发者，但不能被应用到竞争平台及镶嵌到电子设备产品上销售。Oracle的上诉就是因为，Google 并不想为此付费。尽管目前 Google 已经从 Android 移除了 Java API，但这项判决不仅可能令 Google 遭受超过 88 亿美元的罚金，也将会建立软件合理使用的判例。</p>
+<p>这个案件中巨大的赔偿金数额所产生的影响远远小于案件本身的审判结果作为“审判先例”给整个科技行业带来的影响。</p>
+<p>Oracle在这个案件中最终胜诉，首先意味着Google需支付大量的赔款，这对财大气粗的Google来说也许并不能算是切肤之痛，但更重要的是这将会在行业中树立一个新的“先例”：某些类型的代码，特别是API，是受到版权保护的。这一先例的影响力恐怕将前无古人，而我们也可以预见短时间内将会出现众多类似的侵权案件。</p>
 
       
 
@@ -197,7 +206,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
         		</li>
       		
 		</ul>
@@ -207,7 +216,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/02/17/数据结构-双向链表/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/03/05/Google和Oracle的爱恨情仇/">展开全文 >></a>
         </p>
       
 
@@ -240,7 +249,7 @@ var _hmt = _hmt || [];
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/20/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><a class="page-number" href="/page/20/">20</a><span class="page-number current">21</span><a class="page-number" href="/page/22/">22</a><a class="page-number" href="/page/23/">23</a><span class="space">&hellip;</span><a class="page-number" href="/page/25/">25</a><a class="extend next" rel="next" href="/page/22/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/20/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><a class="page-number" href="/page/20/">20</a><span class="page-number current">21</span><a class="page-number" href="/page/22/">22</a><a class="page-number" href="/page/23/">23</a><span class="space">&hellip;</span><a class="page-number" href="/page/27/">27</a><a class="extend next" rel="next" href="/page/22/">Next &raquo;</a>
     </nav>
   
 
@@ -337,15 +346,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">开发工具</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Nginx</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -357,7 +374,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Nginx</a>
+                <a href="javascript:void(0)" class="js-tag color5">开发工具</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -369,15 +386,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">spring</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
