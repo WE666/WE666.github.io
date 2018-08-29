@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>多合一收款二维码原理及实现 | Jason&#39;Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="最近芝麻二维码的“收款码合并”火了，它能将微信收款码和支付宝收款码合并为一个二维码！听上去感觉很神奇，其实原理非常简单！ 无论是支付宝还是微信的收款码，其本质上是一个包含了收款链接的二维码。所以我们的思路是：检测如果是支付宝浏览页面，就给出支付宝的付款链接、如果是微信，就给出微信链接…… 那么问题来了，如何进行判定呢？ 很好办，根据 UserAgent 就能进行判定了！ 部分的代码如下： 1234">
+  <meta name="description" content="最近芝麻二维码的“收款码合并”火了，它能将微信收款码和支付宝收款码合并为一个二维码！听上去感觉很神奇，其实原理非常简单！ 无论是支付宝还是微信的收款码，其本质上是一个包含了收款链接的二维码。所以我们的思路是：检测如果是支付宝浏览页面，就给出支付宝的付款链接、如果是微信，就给出微信链接…… 那么问题来了，如何进行判定呢？ 很好办，根据 UserAgent 就能进行判定了！关于 UserAgent 参">
 <meta name="keywords" content="随笔">
 <meta property="og:type" content="article">
 <meta property="og:title" content="多合一收款二维码原理及实现">
 <meta property="og:url" content="http://yoursite.com/2018/08/24/多合一收款二维码原理及实现/index.html">
 <meta property="og:site_name" content="Jason&#39;Blog">
-<meta property="og:description" content="最近芝麻二维码的“收款码合并”火了，它能将微信收款码和支付宝收款码合并为一个二维码！听上去感觉很神奇，其实原理非常简单！ 无论是支付宝还是微信的收款码，其本质上是一个包含了收款链接的二维码。所以我们的思路是：检测如果是支付宝浏览页面，就给出支付宝的付款链接、如果是微信，就给出微信链接…… 那么问题来了，如何进行判定呢？ 很好办，根据 UserAgent 就能进行判定了！ 部分的代码如下： 1234">
-<meta property="og:updated_time" content="2018-08-29T09:34:26.751Z">
+<meta property="og:description" content="最近芝麻二维码的“收款码合并”火了，它能将微信收款码和支付宝收款码合并为一个二维码！听上去感觉很神奇，其实原理非常简单！ 无论是支付宝还是微信的收款码，其本质上是一个包含了收款链接的二维码。所以我们的思路是：检测如果是支付宝浏览页面，就给出支付宝的付款链接、如果是微信，就给出微信链接…… 那么问题来了，如何进行判定呢？ 很好办，根据 UserAgent 就能进行判定了！关于 UserAgent 参">
+<meta property="og:updated_time" content="2018-08-29T09:47:00.761Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="多合一收款二维码原理及实现">
-<meta name="twitter:description" content="最近芝麻二维码的“收款码合并”火了，它能将微信收款码和支付宝收款码合并为一个二维码！听上去感觉很神奇，其实原理非常简单！ 无论是支付宝还是微信的收款码，其本质上是一个包含了收款链接的二维码。所以我们的思路是：检测如果是支付宝浏览页面，就给出支付宝的付款链接、如果是微信，就给出微信链接…… 那么问题来了，如何进行判定呢？ 很好办，根据 UserAgent 就能进行判定了！ 部分的代码如下： 1234">
+<meta name="twitter:description" content="最近芝麻二维码的“收款码合并”火了，它能将微信收款码和支付宝收款码合并为一个二维码！听上去感觉很神奇，其实原理非常简单！ 无论是支付宝还是微信的收款码，其本质上是一个包含了收款链接的二维码。所以我们的思路是：检测如果是支付宝浏览页面，就给出支付宝的付款链接、如果是微信，就给出微信链接…… 那么问题来了，如何进行判定呢？ 很好办，根据 UserAgent 就能进行判定了！关于 UserAgent 参">
   
     <link rel="alternative" href="/atom.xml" title="Jason&#39;Blog" type="application/atom+xml">
   
@@ -185,13 +185,12 @@ var _hmt = _hmt || [];
         <p>最近芝麻二维码的“收款码合并”火了，它能将微信收款码和支付宝收款码合并为一个二维码！听上去感觉很神奇，其实原理非常简单！</p>
 <p>无论是支付宝还是微信的收款码，其本质上是一个包含了收款链接的二维码。所以我们的思路是：检测如果是支付宝浏览页面，就给出支付宝的付款链接、如果是微信，就给出微信链接……</p>
 <p>那么问题来了，如何进行判定呢？</p>
-<p>很好办，根据 UserAgent 就能进行判定了！</p>
+<p>很好办，根据 UserAgent 就能进行判定了！关于 UserAgent 参考：<a href="https://mkblog.cn/889/" target="_blank" rel="noopener">浏览器野史–UserAgent列传</a></p>
 <p>部分的代码如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">if(navigator.userAgent.match(/Alipay/i)) &#123;</span><br><span class="line">     // 支付宝</span><br><span class="line">      &#125; else if(navigator.userAgent.match(/MicroMessenger\//i)) &#123;</span><br><span class="line">     // 微信</span><br><span class="line">      &#125; else if(navigator.userAgent.match(/QQ\//i)) &#123;</span><br><span class="line">     // QQ</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">     // 其它</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure>
 <p>理论上来说，进行判定后直接给跳转到对应的收款页面就行了，然而实际测试发现在QQ和微信中并不能直接调用付款功能，只有支付宝能直接进行付款。</p>
 <p>这里就只能用一个折中的办法：如果是QQ或微信扫的码，就再放出一个二维码的界面，让用户通过长按识别二维码进入支付流程。</p>
 <p>最终完成的效果如下：</p>
-<p>注：请将代码中第 19、22、25行中的收款链接改为自己的。</p>
 
       
 
@@ -446,7 +445,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -454,11 +453,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">开发工具</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -466,19 +469,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Spring Boot</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">开发工具</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Shell</a>
+                <a href="javascript:void(0)" class="js-tag color2">Spring Boot</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -486,11 +481,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+                <a href="javascript:void(0)" class="js-tag color2">spring</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">spring</a>
+                <a href="javascript:void(0)" class="js-tag color1">Shell</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
